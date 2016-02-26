@@ -1,0 +1,1 @@
+# datareviewer-sampleapps-BatchValidationManager
