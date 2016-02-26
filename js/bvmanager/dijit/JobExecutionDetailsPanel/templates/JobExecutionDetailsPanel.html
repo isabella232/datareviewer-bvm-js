@@ -1,0 +1,85 @@
+
+<div dojoType="dijit/layout/ContentPane" region="right" minSize="10" maxSize="100" style="width:100%;" class="bvmPanelDefault bvmPanelDescription">
+<!--
+     | Version 10.3.1
+     | Copyright 2016 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+-->
+
+	<div class="executioncontainer_detailspanel">
+		 <label id="descriptionJobExecutionLabel" data-dojo-attach-point="descriptionJobExecutionLabel" class="descriptionLabel"> ${localization.description} </label>
+     
+ <div class="container_detailscontent">
+        <h2 id="jobTitle" data-dojo-attach-point="jobTitle" class="ellipsis width_max_230">  </h2>
+
+        <div data-dojo-type="dijit/layout/AccordionContainer" style="height:375px;">
+            <div data-dojo-type="dijit/layout/ContentPane" iconClass="dijitIconChevron" data-dojo-props="title:'${localization.statusLabel}'">
+            	<ul>
+            	<li>
+                        <label id="endStateLabel" data-dojo-attach-point="endStateLabel" class="jobdetails_label">${localization.statusLabel}</label>
+                        <div id="endStateDiv" data-dojo-attach-point="endStateDiv" class="jobdetails_value"></div>
+                    </li>
+                    </ul>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" iconClass="dijitIconChevron" data-dojo-props="title:'${localization.summaryLabel}'" selected="true">
+                <ul>
+                   <!--  <li>
+                        <label id="" data-dojo-attach-point="" class="jobdetails_label">Server used:</label>
+                        <div id="" class="jobdetails_value">review01</div>
+                    </li> -->
+                    <li>
+                        <label id="runTimeLabel" data-dojo-attach-point="runTimeLabel" class="jobdetails_label">${localization.runTimeLabel}:</label>
+                        <div id="runTimeDiv" data-dojo-attach-point="runTimeDiv" class="jobdetails_value"></div>
+                    </li>
+                    <li>
+                        <label id="featuresValidatedLabel" data-dojo-attach-point="featuresValidatedLabel" class="jobdetails_label">${localization.featuresValidatedLabel}:</label>
+                        <div id="featuresValidatedDiv" data-dojo-attach-point="featuresValidatedDiv" class="jobdetails_value"></div>
+                    </li>
+                    <li>
+                        <label id="totalResultsLabel" data-dojo-attach-point="totalResultsLabel" class="jobdetails_label">${localization.resultsLabel}:</label>
+                        <div id="totalResultsDiv" data-dojo-attach-point="totalResultsDiv" class="jobdetails_value"></div>
+                    </li>
+                </ul>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" iconClass="dijitIconChevron" data-dojo-props="title:'Properties'">
+             <ul class="detailscontent_inset">
+            <li>
+               <label id="jobExecutionFileNameLabel" data-dojo-attach-point="jobExecutionFileNameLabel" data-dojo-id="jobExecutionFileNameLabel" class="jobdetails_label">${localization.fileNameLabel}</label>
+               <div id="jobExecutionBatchJobFileName" class="jobdetails_value ellipsis width_max_230" data-dojo-attach-point="jobExecutionBatchJobFileName"></div>
+            </li>
+            <li>
+               <label id="jobExecutionSessionIdLabel" data-dojo-attach-point="jobExecutionSessionIdLabel" class="jobdetails_label">${localization.sessionIdLabel}</label>
+               <div id="jobExecutionSessionId" class="jobdetails_value ellipsis width_max_230" data-dojo-attach-point="jobExecutionSessionId"></div>
+            </li>
+            <li>
+               <label id="jobExecutionScheduleLabel" data-dojo-attach-point="jobExecutionScheduleLabel" class="jobdetails_label">${localization.jobScheduleLabel}</label>
+               <div id="jobExecutionSchedule" class="jobdetails_value ellipsis width_max_230" data-dojo-attach-point="jobExecutionSchedule"></div>
+            </li>
+            <li>
+               <label id="jobExecutionProductionWorkspaceLabel" data-dojo-attach-point="jobExecutionProductionWorkspaceLabel" class="jobdetails_label">${localization.productionWorkspace}</label>
+               <div id="jobExecutionProductionWorkspace" class="jobdetails_value ellipsis width_max_230" data-dojo-attach-point="jobExecutionProductionWorkspace"></div>
+            </li>
+         </ul>
+            </div>
+        
+        </div>
+        
+        <div id="buttonsDiv" align="center" class="margin_top_20">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="associatedBatchButton"  type="button" id="associatedBatchButton">
+           		${localization.associatedBatchJobLabel}
+            </button>
+        </div>
+	</div>
+	</div>
+</div>

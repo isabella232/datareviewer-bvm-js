@@ -1,0 +1,355 @@
+
+<div id="${id}" data-dojo-attach-point="BatchValidationEditorDialog">
+<!--
+     | Version 10.3.1
+     | Copyright 2016 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+-->
+
+<div id="${id}_dialog" data-dojo-attach-point="batchValidationEditorDialog" data-dojo-type="dijit/Dialog"
+     data-dojo-props="title:'${nls.dialogTitle}'">
+<div data-dojo-type="dijit/layout/ContentPane">
+    <form data-dojo-type="dijit/form/Form" data-dojo-attach-point="addBVForm" method="post"
+          enctype="multipart/form-data" class="form_fieldset" name="addBVForm" id="addBVForm">
+        <input type="hidden" name="f" value="json"/>
+
+        <div class="form_field_block">
+            <label id="${id}_titleLabel" class="field_label ellipsis" data-dojo-attach-point="titleLabel"
+                   for="${id}_titleInput">
+                ${nls.batchValidationTitle}
+            </label>
+
+            <div class="field_value_container">
+                <input id="${id}_titleInput" type="text" data-dojo-attach-point="titleTxtEntry" name="title"
+                       data-dojo-props="regExp:'^[^\&#039;&quot;]+', required:true, maxLength:128, invalidMessage:'${nls.invalidCharacters}'"
+                       data-dojo-type="dijit/form/ValidationTextBox" aria-required="true"
+                       aria-describedby="${id}_titleLabel"/>
+            </div>
+        </div>
+
+        <div class="form_field_block">
+            <label id="${id}_batchJobslabel" class="field_label ellipsis" data-dojo-attach-point="batchJoblabel"
+                   for="${id}_batchJobInput">
+                ${nls.batchJobsLabel}
+            </label>
+
+
+            <div class="field_value_container" data-dojo-attach-point="fileUploadContainer">
+                <input id="${id}_fileInput" type="text" data-dojo-attach-point="rbjFileName" name="fileName"
+                       data-dojo-props="regExp:'(.*\.([rR][bB][jJ])$)', required:true, maxLength:128, invalidMessage:'${nls.invalidFileErrorMessage}'"
+                       data-dojo-type="dijit/form/ValidationTextBox" aria-required="true"
+                       aria-describedby="${id}_batchJobslabel"/>
+                <input type="button" value="Browse" data-dojo-attach-point="browseButton" class="radius_right"
+                       id="${id}_browseButton">
+
+            </div>
+            <input id="selectedFile" type="file" data-dojo-attach-point="selectedFile" name="file"/>
+            <input type="text" data-dojo-attach-point="userToken" name="token" hidden="hidden" style="display:none" />
+        </div>
+
+        <div class="form_field_block">
+            <label id="${id}_sessionLabel" class="field_label ellipsis" data-dojo-attach-point="sessionLabel"
+                   for="${id}_sessionDropDown">
+                ${nls.sessionLabel}
+            </label>
+
+            <div class="field_value_container">
+                <select id="${id}_sessionDropDown" data-dojo-attach-point="sessionDropDown" class="width_min_174">
+
+
+                </select>
+            </div>
+        </div>
+        <div class="form_field_block">
+            <label id="${id}_workspaceLabel" class="field_label ellipsis" data-dojo-attach-point="workspaceLabel"
+                   for="${id}_workspaceFileInput">
+                ${nls.workspaceLabel}
+            </label>
+
+            <div class="field_value_container">
+                <select id="${id}_workspaceList" data-dojo-attach-point="workspaceList" name="workspaceList"
+                        class="width_min_174"> </select><!-- data-dojo-props="regExp:'^(([a-zA-Z]:)|(\\\\\\\\[a-zA-Z0-9-]+))(\\\\[^<>:\x22/\\|?*]+)+(\\.(((g|G)(d|D)(b|B))|((s|S)(d|D)(e|E))|((g|G)(d|D)(s|S)\\[a-zA-Z0-9_]+ ?\([a-zA-Z0-9 :._-]+\))))$',invalidMessage:'${nls.invalidWorkspace}'" data-dojo-type="dijit/form/ValidationTextBox" aria-required="false" />-->
+            </
+            >
+            <label id="${id}_optionalLabel" class="explain" data-dojo-attach-point="optionalLabel"
+                   for="${id}_workspaceInput">
+                ${nls.optionalLabel}
+            </label>
+        </div>
+</div>
+<div class="form_field_block">
+    <label id="${id}_runLabel" class="field_label ellipsis" for="runOnceRadio">
+        ${nls.runLabel}
+    </label>
+
+    <div class="field_value_container field_value_paired field_value_paired_first">
+        <input type="radio" data-dojo-attach-point="runOnceRadio" id="${id}_runOnceRadio"
+               data-dojo-props="name:'run' ,value:'once', checked:true" data-dojo-type="dijit/form/RadioButton"
+               role="run" aria-checked="false" tabindex="0"/>
+        <label id="${id}_runOnceRadioLabel" for="${id}_runOnceRadio" class="option_label">
+            ${nls.runOnceRadioLabel}
+        </label>
+
+        <input type="radio" data-dojo-attach-point="runRecurringRadio" id="${id}_runRecurringRadio"
+               data-dojo-props="name:'run' ,value:'recurring'" data-dojo-type="dijit/form/RadioButton" role="run"
+               aria-checked="false" tabindex="-1"/>
+        <label id="${id}_runRecurringRadioLabel" for="${id}_runRecurringRadio" class="option_label">
+            ${nls.runRecurringRadioLabel}
+        </label>
+    </div>
+    <div class="field_value_container field_value_paired field_value_paired_second">
+        <div id="${id}_showHideRecurrence" data-dojo-attach-point="showHideRecurrence">
+            <input type="checkbox" data-dojo-attach-point="runRecurringCheckBox" id="${id}_runRecurringCheckBox"
+                   data-dojo-props="name:'runTimes', value:'recurringTimes'" data-dojo-type="dijit/form/CheckBox"
+                   tabindex="0"/>
+            <label id="${id}_runRecurringCheckBoxLabel" for="${id}_runRecurringCheckBox" class="option_label">
+                ${nls.runRecurringCheckBoxLabel}
+            </label>
+
+            <input id="${id}_recurringTxtEntry" type="number" data-dojo-attach-point="recurringTxtEntry"
+                   data-dojo-props="disabled:true,required:false,maxLength:2, size: 1,rangeMessage:'${nls.invalidRange}'"
+                   data-dojo-type="dijit/form/NumberTextBox"/>
+            <label id="${id}_runRecurringTextLabel" for="${id}_recurringTxtEntry" class="option_label">
+                ${nls.recurringTextLabel}
+            </label>
+        </div>
+    </div>
+</div>
+<div id="${id}_showHideIntervalRow" data-dojo-attach-point="showHideIntervalRow" class="form_field_block">
+    <label id="${id}_intervalLabel" class="field_label ellipsis" for="intervalHourlyRadio">
+        ${nls.intervalLabel}
+    </label>
+
+    <div class="field_value_container">
+        <input type="radio" data-dojo-attach-point="intervalDailyRadio" id="${id}_intervalDailyRadio"
+               data-dojo-props="name:'interval', value:'daily', checked:true" data-dojo-type="dijit/form/RadioButton"
+               role="interval" aria-checked="true" tabindex="0"/>
+        <label id="${id}_intervalDailyRadioLabel" for="${id}_intervalDailyRadio" class="option_label">
+            ${nls.intervalDailyRadioLabel}
+        </label>
+        <input type="radio" data-dojo-attach-point="intervalWeeklyRadio" id="${id}_intervalWeeklyRadio"
+               data-dojo-props="name:'interval', value:'weekly'" data-dojo-type="dijit/form/RadioButton" role="interval"
+               aria-checked="false" tabindex="-1"/>
+        <label id="${id}_intervalWeeklyRadioLabel" for="${id}_intervalWeeklyRadio" class="option_label">
+            ${nls.intervalWeeklyRadioLabel}
+        </label>
+        <input type="radio" data-dojo-attach-point="intervalMonthlyRadio" id="${id}_intervalMonthlyRadio"
+               data-dojo-props="name:'interval', value:'monthly'" data-dojo-type="dijit/form/RadioButton"
+               role="interval" aria-checked="false" tabindex="-1"/>
+        <label id="${id}_intervalMonthlyRadioLabel" for="${id}_intervalMonthlyRadio" class="option_label">
+            ${nls.intervalMonthlyRadioLabel}
+        </label>
+
+    </div>
+</div>
+<div id="${id}_optionsDailyRow" data-dojo-attach-point="optionsDailyRow" class="form_field_block">
+    <label id="${id}_optionsLabel" class="field_label ellipsis" for="optionsEveryDayRadio">
+        ${nls.optionsLabel}
+    </label>
+
+    <div class="field_value_container">
+        <input type="radio" data-dojo-attach-point="optionsEveryDayRadio" id="${id}_optionsEveryDayRadio"
+               data-dojo-props="name:'options1', value:'everyDay', checked:true"
+               data-dojo-type="dijit/form/RadioButton"/>
+        <label id="${id}_optionsEveryDayRadioLabel" for="${id}_optionsEveryDayRadio">
+            ${nls.optionsEveryDayRadioLabel}
+        </label>
+        <input id="${id}_everyDayTxtEntry" type="text" data-dojo-attach-point="everyDayTxtEntry"
+               data-dojo-props="name:'everyDay', value:1, required:false, size:1, maxLength:2, constraints:{min:1,max:31,places:0}"
+               data-dojo-type="dijit/form/NumberTextBox"/>
+        <label id="${id}_everyDayTextLabel" for="${id}_everyDayTxtEntry">
+            ${nls.everyDayTextLabel}
+        </label>
+        <input type="radio" data-dojo-attach-point="optionsEveryWeekdayRadio" id="${id}_optionsEveryWeekdayRadio"
+               data-dojo-props="name:'options1', value:'everyWeekday'" data-dojo-type="dijit/form/RadioButton"/>
+        <label id="${id}_optionsEveryWeekdayRadioLabel" for="${id}_optionsEveryWeekdayRadio">
+            ${nls.optionsEveryWeekdayRadioLabel}
+        </label>
+    </div>
+</div>
+<div id="${id}_optionsWeeklyRow" data-dojo-attach-point="optionsWeeklyRow" class="form_field_block">
+    <label id="${id}_optionsLabel" for="${id}_recurEveryWeekLabel" class="field_label ellipsis">
+        ${nls.optionsLabel}
+    </label>
+
+    <div class="field_value_container">
+        <input type="checkbox" data-dojo-attach-point="optionsMonCheckBox" id="${id}_optionsMonCheckBox"
+               data-dojo-props="name:'options2', value:'Mon'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsMonCheckboxLabel" for="${id}_optionsMonCheckBox">
+            ${nls.optionsMonCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsTueCheckBox" id="${id}_optionsTueCheckBox"
+               data-dojo-props="name:'options2', value:'Tue'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsTueCheckboxLabel" for="${id}_optionsTueCheckBox">
+            ${nls.optionsTueCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsWedCheckBox" id="${id}_optionsWedCheckBox"
+               data-dojo-props="name:'options2', value:'Wed'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsWedCheckBoxLabel" for="${id}_optionsWedCheckBox">
+            ${nls.optionsWedCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsThuCheckBox" id="${id}_optionsThuCheckBox"
+               data-dojo-props="name:'options2', value:'Thu'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsThuCheckboxLabel" for="${id}_optionsThuCheckBox">
+            ${nls.optionsThuCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsFriCheckBox" id="${id}_optionsFriCheckBox"
+               data-dojo-props="name:'options2', value:'Fri'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsFriCheckBoxLabel" for="${id}_optionsFriCheckBox">
+            ${nls.optionsFriCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsSatCheckBox" id="${id}_optionsSatCheckBox"
+               data-dojo-props="name:'options2', value:'Sat'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsSatCheckboxLabel" for="${id}_optionsSatCheckBox">
+            ${nls.optionsSatCheckBoxLabel}
+        </label>
+        <input type="checkbox" data-dojo-attach-point="optionsSunCheckBox" id="${id}_optionsSunCheckBox"
+               data-dojo-props="name:'options2', value:'Sun'" data-dojo-type="dijit/form/CheckBox" tabindex="0"/>
+        <label id="${id}_optionsSunCheckBoxLabel" for="${id}_optionsSunCheckBox">
+            ${nls.optionsSunCheckBoxLabel}
+        </label>
+    </div>
+</div>
+<div id="${id}_optionsMonthlyRow" data-dojo-attach-point="optionsMonthlyRow" class="form_field_block">
+    <label id="${id}_optionsLabel" for="dayofMonthTxtEntry" class="field_label ellipsis">
+        ${nls.optionsLabel}
+    </label>
+
+    <div class="field_value_container">
+        <label id="${id}_DayofMonthTextLabel1" for="${id}_dayofMonthTxtEntry">
+            ${nls.dayTextLabel}
+        </label>
+        <input id="${id}_dayofMonthTxtEntry" type="text" data-dojo-attach-point="dayofMonthTxtEntry"
+               data-dojo-props="name:'Day', value:1, required:false, size: 1, maxLength:2, constraints:{min:1,max:31,places:0}"
+               data-dojo-type="dijit/form/NumberTextBox" tabindex="0"/>
+        <label id="${id}_DayofMonthTextLabel1" for="${id}_everyMonthTxtEntry">
+            ${nls.everyTextLabel}
+        </label>
+        <input id="${id}_everyMonthTxtEntry" type="text" data-dojo-attach-point="EveryMonthTxtEntry"
+               data-dojo-props="name:'Month', value:1, required:false, size: 1, maxLength:2,constraints:{min:1,max:12,places:0}"
+               data-dojo-type="dijit/form/NumberTextBox" tabindex="0"/>
+        <label id="${id}_DayofMonthTextLabel1" for="${id}_everyMonthTxtEntry">
+            ${nls.everyMonthTextLabel}
+        </label>
+    </div>
+</div>
+<div class="form_field_block">
+    <label id="${id}_startingLabel" for="startingDate" class="field_label ellipsis">
+        ${nls.startingLabel}
+    </label>
+
+    <div class="field_value_container">
+        <input type="radio" data-dojo-attach-point="startingNowRadio" id="${id}_startingNowRadio"
+               data-dojo-props="name:'starting' ,value:'now', checked:true" data-dojo-type="dijit/form/RadioButton"
+               tabindex="0"/>
+        <label id="${id}_startingNowRadioLabel" for="${id}_startingNowRadio">
+            ${nls.startingNowRadioLabel}
+        </label>
+        <input type="radio" data-dojo-attach-point="startingSpecifiedRadio" id="${id}_startingSpecifiedRadio"
+               data-dojo-props="name:'starting' ,value:'specified'" data-dojo-type="dijit/form/RadioButton"
+               tabindex="-1"/>
+        <label id="${id}_startingSpecifiedRadioLabel" for="${id}_startingSpecifiedRadio"
+               data-dojo-attach-point="startingSpecifiedRadioLabel">
+            ${nls.startingSpecifiedRadioLabel}
+        </label>
+    </div>
+</div>
+<div id="${id}_startingDateTimeRow" data-dojo-attach-point="startingDateTimeRow" class="form_field_block">
+    <div class="field_label ellipsis">&nbsp;</div>
+    <div class="field_value_container">
+        <div id="${id}_dateNow" data-dojo-attach-point="dateNow" class="field_value_container">
+            <input type="text" data-dojo-attach-point="startingDate" id="${id}_startingDate"
+                   data-dojo-props="name:'starting',required:false" data-dojo-type="dijit/form/DateTextBox" tabindex="0"
+                   value="now"/>
+            <label id="${id}_startingDateTimeLabel" for="${id}_startingDate">
+                ${nls.startingDateTimeLabel}
+            </label>
+        </div>
+        <input type="text" data-dojo-attach-point="startingTime" id="${id}_startingTime"
+               data-dojo-props='name:"starting",required:false' data-dojo-type="dijit/form/TimeTextBox"
+               constraints="{timePattern:'HH:mm',clickableIncrement: 'T00:15:00', visibleIncrement: 'T00:15:00', visibleRange: 'T00:15:00'}"
+               tabindex="-1"/>
+    </div>
+</div>
+<div class="form_field_block">
+    <label id="${id}_extentLabel" for="extentWholeRadio" class="field_label ellipsis">
+        ${nls.extentLabel}
+    </label>
+
+    <div class="field_value_container">
+        <input type="radio" data-dojo-attach-point="extentWholeRadio" id="${id}_extentWholeRadio"
+               data-dojo-props="name:'extent', value:'whole database', checked:true"
+               data-dojo-type="dijit/form/RadioButton" tabindex="0"/>
+        <label id="${id}_extentWholeRadioLabel" for="${id}_extentWholeRadio">
+            ${nls.wholeDatabaseRadioLabel}
+        </label>
+        <input type="radio" data-dojo-attach-point="extentSpatialRadio" id="${id}_extentSpatialRadio"
+               data-dojo-props="name:'extent', value:'spatial extent'" data-dojo-type="dijit/form/RadioButton"
+               tabindex="-1"/>
+        <label id="${id}_extentSpatialRadioLabel" for="${id}_extentSpatialRadio">
+            ${nls.spatialExtentRadioLabel}
+        </label>
+    </div>
+</div>
+<div id="${id}_optionsExtentRow" data-dojo-attach-point="optionsExtentRow" class="form_field_block">
+    <div class="field_label ellipsis">&nbsp;</div>
+    <div class="field_value_container map">
+        <!-- Spatial - START -->
+        <div id="toolbar1" class="width_full display_block clear_both align_right padding_bottom_5">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="drawExtentBtn" title="Draw Extent">
+                ${nls.drawAOI}
+            </button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearExtentBtn">${nls.clearAOI}</button>
+        </div>
+        <div id="container_map" class="display_block clear_both" style=" width:400px;">
+            <div id="${id}_map"
+                 style="overflow:hidden; position:relative; top:0; left:0; width:400px; height:250px;padding-bottom:10px;padding-top:0"></div>
+        </div>
+
+        <!-- Spatial - END -->
+
+    </div>
+</div>
+<div class="form_field_block">
+    <div class="field_label ellipsis">&nbsp;</div>
+    <div class="field_value_container">
+        <input type="checkbox" id="${id}_optionChangedFeaturesOnlyCheckBox"
+               data-dojo-attach-point="optionChangedFeaturesOnlyCheckBox" data-dojo-type="dijit/form/CheckBox"
+               tabindex="0"/>
+        <label id="${id}_optionChangedFeaturesOnlyCheckBoxLabel" for="${id}_optionChangedFeaturesOnlyCheckBox">
+            ${nls.optionChangedFeaturesCheckBoxLabel}
+        </label>
+    </div>
+</div>
+
+<div class="form_field_block buttons">
+    <div class="btn_submit">
+
+        <button id="${id}_submitBtn" data-dojo-attach-point="submitBtn" data-dojo-type="dijit/form/Button" type="button"
+                tabindex="0">
+            ${nls.submit}
+        </button>
+
+        <button id="${id}_cancelBtn" data-dojo-attach-point="cancelBtn" data-dojo-type="dijit/form/Button" type="button"
+                class="form_cancel">
+            ${nls.cancel}
+        </button>
+    </div>
+</div>
+
+<!-- Form - END -->
+</form>
+</div>
+</div>
+</div>

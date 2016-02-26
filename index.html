@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9"/>
+	<!--
+     | Version 10.3.1
+     | Copyright 2016 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+    -->
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples
+    on iOS devices-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+
+    <title>Batch Validation Manager</title>
+	<!--Replace with local Url if ArcGIS JS API has been hosted locally-->
+ 	<link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
+	<!--Replace with local Url if ArcGIS JS API has been hosted locally-->
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css"> 
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/themes/bvm/bvm.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/themes/bvm/bvm_core.css" media="all"/>
+    <!-- 1st: Configure Dojo -->
+    <script>
+        // create RegExp that will remove /index.html from the url
+        var locationRegExpPattern = new RegExp("\/[^/]+$");
+        var locationPathName = location.pathname.replace(this.locationRegExpPattern, '');
+        dojoConfig = {
+            // look for a locale=xx query string param, else default to 'en-us'
+            locale: location.search.match(/locale=([\w\-]+)/) ? RegExp.$1 : "en",
+            async: true,
+            packages: [
+                {
+                    //Package name for accessing Batch Validation dijits
+                    name: "bvmanager",
+                    location: locationPathName + "/js/bvmanager"
+                },
+                {
+                    //Package name for helper classes
+                    name: "util",
+                    location: locationPathName + "/js/bvmanager/util"
+                 },
+                {
+                    // Package name for settings file
+                    name:"bvroot",
+                    location: locationPathName
+                }
+            ]
+        };
+        // get rid of the variable
+        try {
+            delete locationRegExpPattern;
+        } catch (err) {/*for IE browsers*/
+        }
+    </script>
+
+	<!--Url of ArcGIS API for JavaScript--> 
+   <script src="https://js.arcgis.com/3.15/"></script>
+    <!-- 3rd: Parse DOM and load App -->
+    <script>
+        require(["dojo/parser",  "bvmanager/validationApplicationController", "bvmanager/dijit/ScheduledJobList", "bvmanager/dijit/ScheduledJobDetailsPanel", "bvmanager/dijit/JobExecutionDetailsPanel", "bvmanager/dijit/JobExecutionFilterPanel", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/layout/TabContainer", "bvmanager/dijit/BatchValidationEditorDialog", "bvmanager/dijit/JobExecutionList", "dojo/domReady!"], function (parser,  appController) {
+            // Explicitly parse the page first
+            parser.parse();
+
+            // now configure the dijits and tasks
+            appController.startup();
+
+        });
+
+    </script>
+</head>
+<body class="bvm">
+<div id="content" data-dojo-type="dijit/layout/BorderContainer" design="headline" gutters="true"
+     style="min-height:765px;">
+
+    <!-- Header - START -->
+    <div id="container_header" data-dojo-type="dijit/layout/BorderContainer" region="top">
+
+        <!-- Header: Left - START -->
+        <div id="container_header_left" data-dojo-type="dijit/layout/ContentPane" region="left">
+            <!-- Page Title / Logo - START -->
+            <div id="pageTitle" class="font_Avenir">Batch Validation <span class="color_green">Manager</span></div>
+            <img id="pageTitle_image" src="images/bvm_logo.png" width="325" height="66" border="0"
+                 alt="Batch Validation Manager" title="Batch Validation Manager">
+            <!-- Page Title / Logo - END -->
+        </div>
+        <!-- Header: Left - END -->
+
+        <!-- Header: Center - START -->
+        <div id="container_header_center" data-dojo-type="dijit/layout/ContentPane" region="center">
+            &nbsp;
+        </div>
+        <!-- Header: Center - END -->
+
+        <!-- Header: Right - START -->
+        <div id="container_header_right" data-dojo-type="dijit/layout/ContentPane" region="right">
+            <!-- Esri Logo - START -->
+            <a href="http://www.esri.com/" target="_blank"><img src="images/esri_logo.png" width="99" height="66"
+                                                                border="0" alt="Esri" title="Esri"/></a>
+            <!-- Esri Logo - END -->
+        </div>
+        <!-- Header: Right - END -->
+    </div>
+    <!-- Header - END -->
+
+    <!-- Tabs - START -->
+    <div id="tabContainer" data-dojo-type="dijit/layout/TabContainer" region="center">
+
+        <!-- Scheduled jobs list tab -->
+        <div data-dojo-type="dijit/layout/ContentPane" title="Schedules" id="scheduleList" class="tab_schedule">
+            <div data-dojo-type="dijit/layout/BorderContainer" design="headline" gutters="false">
+                <div data-dojo-type="dijit/layout/ContentPane" region="left" style="width:650px;">
+                    <div id="ScheduledJobList" data-dojo-type='bvmanager.dijit.ScheduledJobList'></div>
+                </div>
+                <div data-dojo-type="dijit/layout/ContentPane" region="right" style="width:270px;">
+                    <div id="ScheduledJobDetailsPanel" data-dojo-type="bvmanager.dijit.ScheduledJobDetailsPanel"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Executions list tab -->
+        <div data-dojo-type="dijit/layout/ContentPane" title="Executions" class="tab_executions" id="executionsList">
+
+            <div dojoType="dijit/layout/BorderContainer" design="headline">
+
+                <div dojoType="dijit/layout/ContentPane" id="top" region="top" style="height:50px;width: 700px">
+                    <div id="JobFilter" data-dojo-type="bvmanager.dijit.JobExecutionFilterPanel"></div>
+                </div>
+
+                <div dojoType="dijit/layout/ContentPane" id="center" region="left"
+                     style="background-color:white;width:650px;">
+                    <div id="JobList" data-dojo-type="bvmanager.dijit.JobExecutionList"></div>
+                </div>
+                <div dojoType="dijit/layout/ContentPane" id="right" region="right"
+                     style="width:270px;">
+
+                    <div id="JobDetails" data-dojo-type="bvmanager.dijit.JobExecutionDetailsPanel"></div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Gray Bar: Right - START -->
+    <div id="container_graybar" data-dojo-type="dijit.layout.ContentPane" region="center" design="headline"
+         gutters="false">
+        <div id="container_graybar_left" data-dojo-type="dijit.layout.ContentPane" region="left">
+
+            <button id="addBVButton" data-dojo-type="dijit.form.Button" type="button" iconClass="dijitIconAddBatch">
+
+            </button>
+        </div>
+        <div id="container_graybar_right" data-dojo-type="dijit.layout.ContentPane" region="right">
+            <div id="container_search">
+                <input id="searchField" type="text" size="20" maxlength="60"/>
+                <button type="button" id="searchButton" data-dojo-type="dijit.form.Button"></button>
+                <div id="search" class="display_none"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="batchValidationEditorDialog" data-dojo-type="bvmanager.dijit.BatchValidationEditorDialog"></div>
+
+</body>
+</html>

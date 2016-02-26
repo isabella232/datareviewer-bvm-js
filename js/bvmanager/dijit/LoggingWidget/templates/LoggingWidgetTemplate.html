@@ -1,0 +1,50 @@
+
+<div class="loggingWidgetContainer">
+<!--
+     | Version 10.3.1
+     | Copyright 2016 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+-->
+
+    <div id="${id}_dialog" data-dojo-attach-point="loggingDialog" data-dojo-type="dijit/Dialog"
+         data-dojo-props="title:'${nls.dialogTitle}'">
+        <div data-dojo-type="dijit/layout/ContentPane">
+            <div class="loggingActions">
+                <div class="loggingWidgetActionContainerToggleEntry">
+                    <div class="loggingSprite loggingInfo loggingWidgetActionDisplayToggleIcon" title="Information"></div>
+                    <input type="checkbox"
+                           data-dojo-type="dijit/form/CheckBox"
+                           data-dojo-props="checked:true"
+                           data-dojo-attach-event="change:handleToggleInfoMessages"
+                           title="Toggle Info Messages"
+                           class="loggingWidgetActionDisplayCheckbox"/>
+                </div>
+                <div class="loggingWidgetActionContainerToggleEntry">
+                    <div class="loggingSprite loggingError loggingWidgetActionDisplayToggleIcon" title="Error"></div>
+                    <input type="checkbox"
+                           data-dojo-type="dijit/form/CheckBox"
+                           data-dojo-props="checked:true"
+                           data-dojo-attach-event="change:handleToggleErrorMessages"
+                           title="Toggle Error Messages"
+                           class="loggingWidgetActionDisplayCheckbox"/>
+
+                </div>
+                <div class="loggingClearTest" data-dojo-attach-event="onclick:handleClearLog">${nls.clearLogText}</div>
+            </div>
+            <ul class="loggingWidgetEntryList" data-dojo-attach-point="loggingWidgetEntryList">
+
+            </ul>
+        </div>
+    </div>
+</div>

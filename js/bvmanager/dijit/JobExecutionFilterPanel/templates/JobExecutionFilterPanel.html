@@ -1,0 +1,50 @@
+<div dojoType="dijit/layout/BorderContainer" design="headline">
+<!--
+     | Version 10.3.1
+     | Copyright 2016 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+-->
+
+		<div id="executionFilters" dojoType="dijit/layout/ContentPane" region="top" splitter="true" minSize="10" maxSize="100" class="margin_top_20 padding_bottom_30">
+		 
+       	<div class="display_inline bold">
+        	${localization.filtertText}:
+        </div>
+        <input type="radio" data-dojo-attach-point="filterAllExecutions" id="filterAllExecutions" data-dojo-props="name:'filterExecutionsRadio',checked:true" data-dojo-type="dijit/form/RadioButton" tabindex="0"/>
+        <label id="filterAllExecutionsLabel" for="filterAllExecutions">${localization.filterAllLabel}</label>
+
+        <input type="radio" data-dojo-attach-point="filterErrorExecutions" id="filterErrorExecutions" data-dojo-props="name:'filterExecutionsRadio'" data-dojo-type="dijit/form/RadioButton" tabindex="0"/>
+        <label id="filterErrorExecutionsLabel" for="filterErrorExecutions">${localization.filterErrorLabel}</label>
+
+        <label id="filterExecutionByDateLabel" class="margin_left_15">${localization.filterExecutionByDateLabel}</label>
+        <select data-dojo-type="dijit/form/FilteringSelect" id="filterExecutionByDate">
+	        <option value="0" selected="true">${localization.filterAllLabel}</option>
+            <option value="1">${localization.todayOption}</option>
+            <option value="2">${localization.yesterdayOption}</option>
+            <option value="3">${localization.lastWeekOption}</option>
+            <option value="4">${localization.lastMonthOption}</option>
+        </select>
+        
+        <div class="display_inline margin_left_15">
+        	<button id="refreshJobExecutionButton" data-dojo-attach-point="refreshJobExecutionButton" data-dojo-type="dijit/form/Button" type="button">${localization.refreshButtonText}</button>
+        </div>
+     <div class="display_inline margin_left_15">
+ 	
+ 	  <input type="checkbox" data-dojo-attach-point="chkAutoRefresh" id="${id}_chkAutoRefresh" data-dojo-type="dijit/form/CheckBox"  />
+						<label id="${id}_autoRefreshLabel" for="${id}_chkAutoRefresh" >
+							${localization.autoRefresh}
+						</label>
+     					</div>  
+    </div>
+</div>

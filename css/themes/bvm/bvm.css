@@ -1,0 +1,2134 @@
+/*
+ | Version 10.3.1
+ | Copyright 2016 Esri
+ |
+ | Licensed under the Apache License, Version 2.0 (the "License");
+ | you may not use this file except in compliance with the License.
+ | You may obtain a copy of the License at
+ |
+ |    http://www.apache.org/licenses/LICENSE-2.0
+ |
+ | Unless required by applicable law or agreed to in writing, software
+ | distributed under the License is distributed on an "AS IS" BASIS,
+ | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ | See the License for the specific language governing permissions and
+ | limitations under the License.
+ */
+
+/* DoJo: General Styles - START */
+.bvm .dijitReset {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    line-height: normal;
+    font: inherit;
+    color: inherit;
+}
+
+.bvm .dijitInline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    border: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.bvm .dijitLayoutContainer {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+/* DoJo: General Styles - END */
+
+/* DoJo ContentPane - START */
+.bvm .dijitContentPane {
+    display: block;
+    overflow: auto;
+    border: none;
+    outline: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: inherit;
+}
+
+/* DoJo ContentPane - END */
+
+/* DoJo Popups - START */
+.bvm .dijitPopup {
+    position: absolute;
+    background-color: transparent;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/* DoJo Popups - END */
+
+/* DoJo Icons - START */
+.bvm .dijitNoIcon {
+    display: none;
+}
+
+.bvm .dijitIconSave, .bvm .dijitIconPrint, .bvm .dijitIconCut, .bvm .dijitIconCopy, .bvm .dijitIconClear, .bvm .dijitIconDelete, .bvm .dijitIconUndo, .bvm .dijitIconEdit, .bvm .dijitIconNewTask, .bvm .dijitIconEditTask, .bvm .dijitIconEditProperty, .bvm .dijitIconTask, .bvm .dijitIconFilter, .bvm .dijitIconConfigure, .bvm .dijitIconSearch, .bvm .dijitIconApplication, .bvm .dijitIconBookmark, .bvm .dijitIconChart, .bvm .dijitIconConnector, .bvm .dijitIconDatabase, .bvm .dijitIconDocuments, .bvm .dijitIconMail, .dijitLeaf, .bvm .dijitIconFile, .bvm .dijitIconFunction, .bvm .dijitIconKey, .bvm .dijitIconPackage, .bvm .dijitIconSample, .bvm .dijitIconTable, .bvm .dijitIconUsers, .dijitFolderClosed, .bvm .dijitIconFolderClosed, .dijitFolderOpened, .bvm .dijitIconFolderOpen, .bvm .dijitIconError {
+    /*background-image: url(../../icons/images/commonIconsObjActEnabled.png);*/
+    background-image: none;
+    width: 16px;
+    height: 16px;
+}
+
+.bvm .dijitIconNewTask {
+    /*background-position: -128px;*/
+    background-position: top left;
+    background-image: none;
+    width: 0px;
+    height: 0px;
+}
+
+/* DoJo Icons - END */
+
+/* DoJo Buttons - START */
+.bvm .dijitButtonNode {
+    outline: none;
+    padding: 4px 14px 5px 14px;
+    margin: 0;
+    border-right: 1px solid #4e903c;
+    border-bottom: 1px solid #4e903c;
+    color: #fff;
+    outline: none !important;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    cursor: pointer;
+    text-shadow: -0.05em -0.05em 0.1em #666;
+    background-color: #7ab669;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9bc88f', endColorstr='#5ca547');*/
+    /* for IE */
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top, #9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+}
+
+.bvm .dijitButtonHover .dijitButtonNode {
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+.bvm .dijitButtonNode, .dijitButtonNode * {
+    cursor: pointer;
+}
+
+.bvm .dijitButtonContents {
+    display: block;
+}
+
+.bvm .dijitStretch {
+    white-space: nowrap;
+    background-repeat: repeat-x;
+}
+
+.bvm .dijitButtonActive span,
+.bvm .dijitButtonHover .dijitButtonNode span,
+.bvm .dijitButtonActiveFocused .dijitButtonNode,
+.bvm .dijitButtonActive .dijitButtonNode span,
+.bvm .dijitButtonFocused .dijitButtonNode span,
+.bvm .dijitDropDownButton .dijitButtonNode,
+.bvm .dijitDropDownButtonActive .dijitButtonNode span,
+.bvm .d.dijitDropDownButtonFocused .dijitButtonNode span,
+.bvm .dijitDropDownButton .dijitButtonNode span {
+    outline: none !important;
+}
+
+/* DoJo Buttons - END */
+
+/* DoJo Buttons: Add Batch Validation Button - START */
+.bvm #container_graybar_left .dijitButtonNode {
+    margin: 8px 0 0 0 !important;
+    padding: 3px 0 0 18px !important;
+    border: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    outline: none !important;
+    filter: none !important;
+    background: none !important;
+    background-color: none !important;
+    color: #fff !important;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    height: 25px;
+    font-weight: normal;
+    display: block !important;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -60px 0px !important;
+    /*
+    background-image:url(../../../images/bar_plus_default.png) !important;
+    background-position:top left !important;
+    */
+}
+
+.bvm #container_graybar_left #addBVButton .dijitButtonNode .dijitIconAddBatch {
+}
+
+.bvm #container_graybar_left .dijitButtonHover .dijitButtonNode .dijitIconAddBatch {
+}
+
+.bvm #container_graybar_left .dijitButtonHover .dijitButtonNode {
+    color: #000 !important;
+    text-decoration: none;
+    /* IMAGE SPRITE */
+    background-position: -60px -32px !important;
+    /*
+    background-image:url(../../../images/bar_plus_over.png) !important;
+    */
+}
+
+/* DoJo Buttons: Add Batch Validation Button - END */
+
+/* DoJo Tabs - START */
+.bvm .nowrapTabStrip {
+    width: 100%;
+    display: block;
+    position: relative;
+    text-align: left;
+}
+
+.bvm .nowrapTabStrip.dijitTabContainerTop-tabs,
+.bvm .dijitTabListWrapper.dijitTabContainerTopNone.dijitAlignClient {
+    width: 400px !important;
+}
+
+.bvm .dijitTabListWrapper {
+    overflow: hidden;
+}
+
+.bvm .dijitTab * {
+    vertical-align: middle;
+}
+
+.bvm .dijitTabContainer {
+    width: 100%;
+}
+
+.bvm .dijitTabContainerTop-tabs {
+    border: none;
+    border-bottom: none;
+    z-index: 1px;
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTab {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 3px 5px 0 0 !important;
+    height: 38px; /*40px;*/
+    float: left; /* Added 2012-08-22 by FG */
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTab,
+.bvm .dijitTabContainerBottom-tabs .dijitTab {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTabInnerDiv,
+.bvm .dijitTabContainerTop-tabs .dijitTabContent,
+.bvm .dijitTabContainerTop-tabs .dijitTabContent div,
+.bvm .dijitTabContainerTop-tabs .dijitTab,
+.bvm .dijitTabContainerTop-tabs .tabLabel {
+    border: none !important;
+    outline: none !important;
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTabInnerDiv {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTabContent {
+    padding-top: 4px; /*8px;*/
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.bvm .dijitTabContainerTop-tabs .dijitTabInnerDiv,
+.bvm .dijitTabContainerTop-tabs .dijitTabContent {
+    min-width: 60px;
+    margin: 0;
+    font-size: 18px;
+    color: #e5e5e5;
+    display: block;
+    text-decoration: none;
+    font-weight: normal !important;
+    font-style: normal;
+    line-height: normal;
+    font-variant: normal;
+    font-family: 'Avenir LT W01 65 Medium', Verdana, Geneva, sans-serif !important;
+    text-shadow: -0.05em -0.05em 0.1em #000;
+}
+
+.bvm .dijitTabContent.dijitButtonContents {
+    display: none !important;
+}
+
+.bvm .dijitTabContainerBottom-tabs,
+.bvm .dijitTabContainerTop-tabs,
+.bvm .dijitTabContainerLeft-tabs,
+.bvm .dijitTabContainerRight-tabs {
+    overflow: visible !important;
+}
+
+.bvm .dijitTab.dijitTabChecked.dijitChecked {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 49%, #ebf6f8 52%, #feffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(49%, #ffffff), color-stop(52%, #ebf6f8), color-stop(100%, #feffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 49%, #ebf6f8 52%, #feffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 49%, #ebf6f8 52%, #feffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 49%, #ebf6f8 52%, #feffff 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%, #ffffff 49%, #ebf6f8 52%, #feffff 100%); /* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -o-border-top-left-radius: 4px;
+    -o-border-top-right-radius: 4px;
+    /*
+    background-image:url(../../../images/bar_tab_overview.png);
+    background-repeat:no-repeat;
+    background-position:bottom center;
+    */
+}
+
+.bvm .dijitTab.dijitTabChecked.dijitChecked .dijitTabContent {
+    color: #000;
+    text-shadow: none !important;
+    outline: none;
+}
+
+.bvm .dijitTab.dijitTabChecked.dijitChecked {
+    color: #000;
+    text-shadow: none !important;
+    outline: none;
+}
+
+.bvm .dijitTabContainerBottom-container,
+.bvm .dijitTabContainerTop-container,
+.bvm .dijitTabContainerLeft-container,
+.bvm .dijitTabContainerRight-container {
+    border: none;
+}
+
+/* DoJo Tabs - END */
+
+/* DoJo Dialog - START */
+.bvm .dijitDialogUnderlayWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 998;
+    display: none;
+    background: transparent !important;
+}
+
+.bvm .dijitDialog {
+    position: absolute;
+    z-index: 999;
+    overflow: hidden;
+    background-color: #fff;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border: 1px #666 solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 0 0 5px 3px #999;
+    -moz-box-shadow: 0 0 5px 3px #999;
+    -webkit-box-shadow: 0 0 5px 3px #999;
+}
+
+.bvm .dijitDialog,
+.bvm .dijitDialog.dijitDialogHover.dijitHover,
+.bvm .dijitDialog.dijitDialogFocused.dijitFocused,
+.bvm .dijitDialog.dijitDialogHoverFocused.dijitHoverFocused {
+    /*
+    min-width:595px;
+    max-width:620px;
+    */
+    width: 600px;
+    min-height: 300px;
+    max-height: 600px;
+    padding: 0;
+    margin: 0;
+}
+
+.bvm .dijitDialog .dijitDialogTitleBar {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0 0 10px 0;
+    padding: 0;
+    width: 100%;
+    height: 36px;
+    border-bottom: 1px solid #d3e1e4;
+    clear: both;
+    display: block;
+    background-color: #eaf5f8;
+    background-image: -webkit-gradient(linear, left top, left top, color-stop(0.85, #f1f9fa), color-stop(0.99, #e3f2f5));
+    background-image: -webkit-linear-gradient(center top, #f1f9fa 85%, #e3f2f5 99%);
+    background-image: -moz-linear-gradient(center top, #f1f9fa 85%, #e3f2f5 99%);
+    background-image: -o-linear-gradient(top, #f1f9fa 85%, #e3f2f5 99%);
+    background-image: -ms-linear-gradient(top, #f1f9fa 85%, #e3f2f5 99%);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f9fa', endColorstr='#e3f2f5',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #f1f9fa 100%, #e3f2f5 100%);
+    background-image: linear-gradient(top, #f1f9fa 85%, #e3f2f5 99%);
+    background-clip: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -o-border-top-left-radius: 5px;
+    -o-border-top-right-radius: 5px;
+}
+
+.bvm .dijitDialog .dijitDialogTitleBar .dijitDialogTitle {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 10px 0 0 18px;
+    color: #af7209;
+    font-size: 16px;
+    font-weight: normal !important;
+    font-style: normal;
+    line-height: normal;
+    font-variant: normal;
+    font-family: 'Avenir LT W01 65 Medium', Verdana, Geneva, sans-serif !important;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    clear: none;
+}
+
+.bvm .dijitDialog .dijitDialogTitleBar .dijitDialogCloseIcon {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 0px 0px !important;
+    /*
+    background-image:url(../../../images/icon_close_default.png) !important;
+    background-position:center !important;
+    */
+}
+
+.bvm .dijitDialog .dijitDialogTitleBar .dijitDialogCloseIcon.dijitDialogCloseIconHover {
+    background-position: -16px -12px !important;
+    /*
+    background-image:url(../../../images/icon_close_over.png) !important;
+    */
+}
+
+.bvm .dijitDialog .dijitDialogPaneContent,
+.bvm .dijitDialog .dijitContentPane {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bvm .dijitDialog .dijitDialogPaneContent {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 80%;
+    max-height: 500px;
+    clear: both;
+    display: block;
+}
+
+.bvm .dijitDialog .dijitDialogPaneContent .dijitContentPane {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    clear: both;
+    display: block;
+}
+
+.bvm.dojoMove {
+}
+
+.bvm .dijitDialog.dojoMoveItem {
+}
+
+/* DoJo Dialog - END */
+
+/* DoJo Tables - START */
+.bvm table td {
+    text-align: left;
+    vertical-align: top;
+}
+
+/* DoJo Tables - END */
+
+/* DoJo Forms - START */
+.bvm form {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+/*
+.bvm form label {
+    width:100%;
+    margin: 0;
+    padding:4px;
+    text-align:right;
+    vertical-align:top;
+    display:inline-block;
+    clear:none;
+}
+*/
+.esriSignInDialog {
+    font-size: 10pt;
+}
+
+.esriSignInDialog .dijitDialogPaneContentArea div:first-child {
+    display: none;
+}
+
+.batchValidatorSignInText {
+    margin-left: 10px;
+}
+
+.esriSignInDialog .dijitDialogPaneContentArea {
+    padding: 10px;
+}
+
+.esriSignInDialog .dijitDialogPaneActionBar {
+    text-align: center;
+}
+
+.esriSignInDialog .dijitDialogPaneActionBar .esriIdCancel {
+    margin-left: 5px;
+}
+
+.esriSignInDialog .dijitDialogPaneActionBar .esriIdCancel .dijitButtonNode, .esriSignInDialog .dijitDialogPaneActionBar .esriIdSubmit  .dijitButtonNode {
+    width: 75px;
+}
+
+.bvm form .dijitInputField.dijitInputContainer,
+.bvm form select, .esriSignInDialog  .dijitInputField.dijitInputContainer {
+    /*min-width:250px;*/
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0 0 0 5px;
+    padding: 4px;
+    border: 1px solid #cccccc;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    clear: left;
+    float: left !important;
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+    background-image: -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background-image: -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background-image: -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+    background-image: -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #ffffff 100%, #eeeeee 100%);
+    background-image: linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.bvm form select.width_min_174 {
+    min-width: 174px;
+}
+
+.bvm form .dijitDisabled .dijitInputField,
+.bvm form .dijitInputField.dijitInputContainer.dijitTextBoxDisabled.dijitNumberTextBoxDisabled.dijitDisabled,
+.bvm form .dijitDisabled select {
+    color: #666;
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #eeeeee), color-stop(0.99, #cccccc));
+    background-image: -webkit-linear-gradient(center bottom, #eeeeee 85%, #cccccc 99%);
+    background-image: -moz-linear-gradient(center bottom, #eeeeee 85%, #cccccc 99%);
+    background-image: -o-linear-gradient(bottom, #eeeeee 85%, #cccccc 99%);
+    background-image: -ms-linear-gradient(top, #eeeeee 85%, #cccccc 99%);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #eeeeee 100%, #cccccc 100%);
+    background-image: linear-gradient(top, #eeeeee 85%, #cccccc 99%);
+}
+
+.bvm form .dijitTextBox {
+    border: none;
+    width: auto;
+    vertical-align: middle;
+}
+
+.bvm form .dijitValidationInner,
+.bvm form .dijitArrowButtonInner,
+.bvm form .dijitTextBoxError input.dijitValidationInner,
+.bvm form .dijitTextBox input.dijitArrowButtonInner {
+    text-indent: -1em !important;
+    direction: ltr !important;
+    text-align: left !important;
+    height: auto !important;
+    font-weight: normal;
+}
+
+.bvm .dijitTextBox .dijitValidationContainer {
+    display: none;
+}
+
+.bvm form .dijitValidationContainer,
+.bvm form .dijitTextBoxError .dijitValidationContainer {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 10px; /* Originally: 15px; */
+    height: 15px;
+    margin: 3px 0 0 5px;
+    padding: 5px 5px 0 0;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    cursor: default;
+    float: none !important;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -45px -32px !important;
+    /*
+    background-image:url(../../../images/icon_asterisk.png) !important;
+    background-position:top left !important;
+    */
+}
+
+.bvm form .dijitValidationContainer .dijitValidationIcon {
+    display: none;
+}
+
+.bvm form input[type="button"],
+.bvm form input[type="file"],
+.bvm #toolbar1 .dijitButtonNode {
+    outline: none;
+    padding: 4px 14px 5px 14px !important;
+    margin: 0;
+    border-right: 1px solid #adc3c7;
+    border-bottom: 1px solid #adc3c7;
+    outline: none !important;
+    color: #4c4c4c !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #dcecef;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eef6f7', endColorstr='#c8e1e6');*/
+    background: -ms-linear-gradient(top, #eef6f7 100%, #c8e1e6 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#eef6f7), to(#c8e1e6));
+    background: -moz-linear-gradient(center top, #eef6f7, #c8e1e6) repeat scroll 0 0 #c8e1e6;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    text-shadow: none !important;
+}
+
+.bvm form input[type="button"].radius_right,
+.bvm form input[type="file"].radius_right,
+.bvm #toolbar1 .dijitButtonNode.radius_right {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    -moz-border-radius-topright: 12px;
+    -moz-border-radius-bottomright: 12px;
+    -webkit-border-top-right-radius: 12px;
+    -webkit-border-bottom-right-radius: 12px;
+    -o-border-top-right-radius: 12px;
+    -o-border-bottom-right-radius: 12px;
+}
+
+.bvm form input[type="button"].radius_left,
+.bvm form input[type="file"].radius_left,
+.bvm #toolbar1 .dijitButtonNode.radius_left {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    -moz-border-radius-topleft: 12px;
+    -moz-border-radius-bottomleft: 12px;
+    -webkit-border-top-left-radius: 12px;
+    -webkit-border-bottom-left-radius: 12px;
+    -o-border-top-left-radius: 12px;
+    -o-border-bottom-left-radius: 12px;
+}
+
+.bvm form input[type="button"]:hover,
+.bvm form input[type="button"]:focus,
+.bvm form input[type="file"]:hover,
+.bvm form input[type="file"]:focus,
+.bvm #toolbar1 .dijitButtonHover .dijitButtonNode {
+    color: #fff !important;
+    /* Background */
+    background: #4997d2;
+    background: -moz-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4997d2), color-stop(100%, #0068ba));
+    background: -webkit-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -o-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -ms-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    /*
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    */
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+.bvm #toolbar1 .dijitButtonNode .dijitButtonContents,
+.bvm #toolbar1 .dijitButtonNode .dijitButtonText,
+.bvm #toolbar1 .dijitButtonNode span {
+    border: none !important;
+    outline: none !important;
+}
+
+/*
+.bvm form .dijitCheckBox,
+.bvm form .dijitRadio,
+.bvm form .dijitCheckBoxInput
+*/
+.bvm .dijitCheckBox,
+.bvm .dijitRadio,
+.bvm .dijitCheckBoxInput {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0 0 0 5px;
+    padding: 0;
+    border: 0;
+    width: 20px;
+    height: 20px;
+    /*background-position: center center;*/
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden;
+    clear: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.bvm .dijitCheckBox input,
+.bvm .dijitRadio input {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.bvm .dijitCheckBoxInput {
+    opacity: 0.01;
+}
+
+.bvm .dijitCheckBox {
+    /* IMAGE SPRITE */
+    background-position: 0px -52px !important;
+    /*
+    background-image:url(../../../images/form_checkbox.png) !important;
+    */
+}
+
+.bvm .dijitCheckBox.dijitCheckBoxDisabled,
+.bvm .dijitCheckBox.dijitCheckBoxDisabled.dijitDisabled {
+    /* IMAGE SPRITE */
+    background-position: 0px -71px !important;
+    /*
+    background-image:url(../../../images/form_checkbox_disabled.png) !important;
+    */
+}
+
+.bvm .dijitCheckBox.dijitCheckBoxChecked.dijitChecked {
+    /* IMAGE SPRITE */
+    background-position: -20px -52px !important;
+    /*
+    background-image:url(../../../images/form_checkbox_checked.png) !important;
+    */
+}
+
+.bvm .dijitCheckBox.dijitCheckBoxDisabled.dijitCheckBoxCheckedDisabled.dijitCheckedDisabled.dijitDisabled {
+    /* IMAGE SPRITE */
+    background-position: -20px -71px !important;
+    /*
+    background-image:url(../../../images/form_checkbox_checked_disabled.png) !important;
+    */
+}
+
+.bvm .dijitRadio {
+    /* IMAGE SPRITE */
+    background-position: 0px -92px !important;
+    /*
+    background-image:url(../../../images/form_radio.png) !important;
+    */
+}
+
+.bvm .dijitRadio.dijitRadioDisabled,
+.bvm .dijitRadio.dijitRadioDisabled.dijitDisabled {
+    /* IMAGE SPRITE */
+    background-position: 0px -122px !important;
+    /*
+    background-image:url(../../../images/form_radio_disabled.png) !important;
+    */
+}
+
+.bvm .dijitRadio.dijitRadioChecked.dijitChecked {
+    /* IMAGE SPRITE */
+    background-position: -20px -92px !important;
+    /*
+    background-image:url(../../../images/form_radio_checked.png) !important;
+    */
+}
+
+.bvm .dijitRadio.dijitRadioDisabled.dijitRadioCheckedDisabled.dijitCheckedDisabled.dijitDisabled {
+    /* IMAGE SPRITE */
+    background-position: -20px -122px !important;
+    /*
+    background-image:url(../../../images/form_checkbox_checked_disabled.png) !important;
+    */
+}
+
+/* DoJo Forms - END */
+
+/* DoJo ToolTip - START */
+.dijitTooltip {
+    position: absolute;
+    z-index: 2000;
+    display: block;
+    left: 0;
+    top: -10000px;
+    overflow: visible;
+}
+
+.dijitTooltip .dijitTooltipContainer {
+    padding: 3px 4px;
+    border: 1px solid #333;
+    background: none;
+    background-color: #02719e;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Dojo ToolTip - END */
+
+/* DoJo DateTextBox - START */
+.bvm .dijitDateTextBox .dijitButtonNode {
+    width: 20px;
+    height: 20px;
+    margin: 4px 0 0 4px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    outline: none !important;
+    filter: none !important;
+    background: none !important;
+    background-color: none !important;
+    background-position: center !important;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -44px -52px !important;
+    /* background-image:url(../../../images/icon_calendar.png) !important; */
+    float: right !important;
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}
+
+.bvm .dijitDateTextBox .dijitInputField.dijitInputContainer {
+    width: 125px;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup {
+    width: 17em;
+    padding: .2em .2em 0;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarContainer {
+    width: 100% !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer {
+    background-color: #EAF5F8;
+    border-bottom: 1px solid #D3E1E4;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow {
+    border: 1px solid #EAF5F8;
+    text-align: center;
+    background: #EAF5F8 50% 50% repeat-x;
+    cursor: pointer;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow.dijitCalendarArrowHover {
+    border: 1px solid #999;
+    /*background: #DADADA 50% 50% repeat-x;*/
+    font-weight: normal;
+    color: #fff;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow img {
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 7px;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    display: block;
+    float: left;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow img.dijitCalendarIncrementControl.dijitCalendarDecrease {
+    /* IMAGE SPRITE */
+    background-position: -1px -150px !important;
+    /* background-image:url(../../../images/icon_arrow1_left.png); */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow img.dijitCalendarIncrementControl.dijitCalendarIncrease {
+    /* IMAGE SPRITE */
+    background-position: -1px -168px !important;
+    /* background-image:url(../../../images/icon_arrow1_right.png); */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow.dijitCalendarArrowHover img.dijitCalendarIncrementControl.dijitCalendarDecrease {
+    /* IMAGE SPRITE */
+    background-position: -20px -150px !important;
+    /* background-image:url(../../../images/icon_arrow1_left_over.png); */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow.dijitCalendarArrowHover img.dijitCalendarIncrementControl.dijitCalendarIncrease {
+    /* IMAGE SPRITE */
+    background-position: -20px -168px !important;
+    /* background-image:url(../../../images/icon_arrow1_right_over.png); */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitCalendarArrow span {
+    display: none;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitButtonNode {
+    width: auto !important;
+    margin: 3px 0;
+    border: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    outline: none !important;
+    filter: none !important;
+    background: none !important;
+    background-color: none !important;
+    float: left;
+    clear: right;
+    font-size: 14px;
+    color: #AF7209;
+    font-weight: normal !important;
+    text-shadow: none !important;
+    text-decoration: underline !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitDropDownButtonHover .dijitButtonNode {
+    color: #4b8d2c; /*#02719e;*/
+    text-shadow: none !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitArrowButtonInner {
+    width: 10px;
+    height: 2px;
+    display: inline-block !important;
+    *display: inline !important;
+    *zoom: 1;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitArrowButtonChar {
+    font-size: 11px;
+    color: #AF7209;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block !important;
+    *display: inline !important;
+    *zoom: 1;
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarMonthContainer .dijitDropDownButtonHover .dijitArrowButtonChar {
+    color: #4b8d2c; /*#02719e;*/
+    text-shadow: none !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarDayLabelTemplate {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarBodyContainer {
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr.dijitCalendarWeekTemplate td {
+    padding: 1px !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr.dijitCalendarWeekTemplate td span {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr td.dijitCalendarEnabledDate span {
+    border: 1px solid #d3d3d3;
+    background: #fff;
+    font-weight: normal;
+    color: #555;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr td.dijitCalendarEnabledDate.dijitCalendarSelectedDate span {
+    /*background-color: #02719E;*/
+    color: #fff;
+    background-color: #3295ce;
+    background: -ms-linear-gradient(top, #1987c8 100%, #469ed3 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#1987c8), to(#469ed3));
+    background: -moz-linear-gradient(center top, #1987c8, #469ed3) repeat scroll 0 0 #469ed3;
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr td.dijitCalendarEnabledDate.dijitCalendarHoveredDate span {
+    border: 1px solid #AAA;
+    /*background: #fff 50% 50% repeat-x;*/
+    font-weight: normal;
+    color: #fff !important;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup table tr td.dijitCalendarPreviousMonth span,
+.bvm .dijitPopup.dijitCalendarPopup table tr td.dijitCalendarNextMonth span {
+    border: 1px solid #d3d3d3;
+    background: #E6E6E6 50% 50%;
+    font-weight: normal;
+    color: #999;
+}
+
+.bvm .dijitCalendarMonthMenu .dijitCalendarMonthLabel {
+    padding: 3px 0;
+    text-align: center;
+    border-bottom: 1px solid #D3E1E4;
+}
+
+.bvm .dijitCalendarMonthMenu .dijitCalendarMonthLabel:nth-child(even) {
+    background: #E3F1F8;
+}
+
+.bvm .dijitCalendarMonthMenu .dijitCalendarMonthLabel:nth-child(odd) {
+    background: #FFF;
+}
+
+.bvm .dijitCalendarMonthMenu .dijitCalendarMonthLabel.dijitCalendarMonthLabelHover {
+    color: #fff;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel {
+    margin: 3px 0 0 0;
+    padding: 2px 0;
+    width: 100% !important;
+    display: block;
+    clear: both;
+    background-color: #f5f5f5;
+    border-top: 1px solid #dedede;
+    text-align: center;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarPreviousYear,
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarNextYear,
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarSelectedYear {
+    padding: .2em;
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarSelectedYear {
+    cursor: default;
+    color: #fff;
+    background-color: #3295ce;
+    background: -ms-linear-gradient(top, #1987c8 100%, #469ed3 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#1987c8), to(#469ed3));
+    background: -moz-linear-gradient(center top, #1987c8, #469ed3) repeat scroll 0 0 #469ed3;
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+}
+
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarPreviousYear.dijitCalendarPreviousYearHover,
+.bvm .dijitPopup.dijitCalendarPopup .dijitCalendarYearLabel .dijitCalendarNextYear.dijitCalendarNextYearHover {
+    color: #fff !important;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+/* DoJo DateTextBox - END */
+
+/* DoJo TimeTextBox - START */
+.bvm .dijitTimeTextBox .dijitButtonNode {
+    display: none !important;
+}
+
+.bvm .dijitTimeTextBox .dijitInputField.dijitInputContainer {
+    width: 125px;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup {
+    width: 10em;
+    padding: .2em .2em 0;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitMenu.dijitTimePicker {
+    width: 100% !important;
+    border: none !important;
+    background-color: transparent !important
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePicker .dijitButtonNode {
+    outline: none;
+    padding: 4px 14px 5px 14px !important;
+    margin: 0;
+    border-right: 1px solid #adc3c7;
+    border-bottom: 1px solid #adc3c7;
+    outline: none !important;
+    color: #4c4c4c !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    background: #dcecef;
+    background: -moz-linear-gradient(top, #eef6f7 0%, #c8e1e6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eef6f7), color-stop(100%, #c8e1e6));
+    background: -webkit-linear-gradient(top, #eef6f7 0%, #c8e1e6 100%);
+    background: -o-linear-gradient(top, #eef6f7 0%, #c8e1e6 100%);
+    background: -ms-linear-gradient(top, #eef6f7 0%, #c8e1e6 100%);
+    background: linear-gradient(top, #eef6f7 0%, #c8e1e6 100%);
+    text-shadow: none !important;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePicker .dijitButtonNode.dijitUpArrowButton {
+    border-top: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -o-border-bottom-left-radius: 4px;
+    -o-border-bottom-right-radius: 4px;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePicker .dijitButtonNode.dijitDownArrowButton {
+    border-bottom: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -o-border-top-left-radius: 4px;
+    -o-border-top-right-radius: 4px;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePicker .dijitButtonNode.dijitUpArrowButton.dijitUpArrowHover,
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePicker .dijitButtonNode.dijitDownArrowButton.dijitDownArrowHover {
+    color: #fff !important;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerTick,
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerItem.dijitTimePickerMarker {
+    color: #333;
+    border-bottom: 1px solid #D3E1E4;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerItem.dijitTimePickerMarker {
+    background-color: #E3F1F8;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerTick,
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerMarker {
+    /*border-bottom: 1px solid #D3E1E4;*/
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitUpArrowButton {
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitUpArrowButton .dijitArrowButtonInner {
+    display: none !important;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitUpArrowButton .dijitArrowButtonChar {
+    display: inline-block !important;
+    *display: inline !important;
+    *zoom: 1;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitDownArrowButton {
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitDownArrowButton .dijitArrowButtonInner {
+    display: none !important;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitButtonNode.dijitDownArrowButton .dijitArrowButtonChar {
+    display: inline-block !important;
+    *display: inline !important;
+    *zoom: 1;
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerItem.dijitTimePickerItemSelected {
+    color: #fff;
+    background-color: #3295ce;
+    background: -ms-linear-gradient(top, #1987c8 100%, #469ed3 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#1987c8), to(#469ed3));
+    background: -moz-linear-gradient(center top, #1987c8, #469ed3) repeat scroll 0 0 #469ed3;
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+}
+
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerItem.dijitTimePickerItemHover,
+.bvm .dijitPopup.dijitTimePickerPopup .dijitTimePickerItem.dijitTimePickerTickHover {
+    color: #fff !important;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    /*
+    background-color:#7ab669;
+    background: -ms-linear-gradient(top, #9bc88f 100%, #5ca547 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#9bc88f), to(#5ca547));
+    background: -moz-linear-gradient(center top ,#9bc88f, #5ca547) repeat scroll 0 0 #5ca547;
+    */
+    /*
+    background-color:#02719e;
+    background: -ms-linear-gradient(top, #59a3c0 100%, #02719e 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#59a3c0), to(#02719e));
+    background: -moz-linear-gradient(center top , #59a3c0, #02719e) repeat scroll 0 0 #02719e;
+    */
+}
+
+/* DoJo TimeTextBox - END */
+
+/* DoJo Grid - START */
+.bvm .dojoxGrid {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    outline: none !important;
+    overflow: hidden;
+    font-family: inherit;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterHeader {
+    position: relative;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterHeader .dojoxGridHeader {
+    background-color: #e7f4f6;
+    position: absolute;
+    overflow: hidden;
+    cursor: default;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterHeader .dojoxGridHeader table {
+    text-align: center;
+}
+
+.bvm .dojoxGrid table {
+    padding: 0;
+}
+
+.bvm .dojoxGrid .dojoxGridRowTable {
+    table-layout: fixed;
+    empty-cells: show;
+    width: 0;
+}
+
+.bvm .dojoxGrid .dojoxGridCell {
+    border-color: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 3px;
+    text-align: left;
+    overflow: hidden;
+    cursor: default;
+}
+
+.bvm .dojoxGrid .dojoxGridHeader .dojoxGridCell {
+    border: 1px solid;
+    border-color: #eef7f9 #e3ebed #d4e2e5 #e5f3f6;
+    /*background: url(images/grid_dx_gradient.gif);*/
+    background: none;
+    background-color: #EAF5F8;
+    color: #5d6263;
+}
+
+.bvm .dojoxGrid .dojoxGridHeader .dojoxGridCell.dojoxGridCellOver {
+    color: #fff !important;
+    outline: none !important;
+    background: #4997d2;
+    background: -moz-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4997d2), color-stop(100%, #0068ba));
+    background: -webkit-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -o-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: -ms-linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    background: linear-gradient(top, #4997d2 0%, #0068ba 100%);
+    /*
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    */
+}
+
+.bvm .dojoxGrid .dojoxGridHeader .dojoxGridCell .dojoxGridColCaption {
+    text-align: left;
+}
+
+.bvm .dojoxGrid .dojoxGridHeader .dojoxGridCell .dojoxGridArrowButtonNode {
+    display: none;
+    padding-left: 16px;
+}
+
+.bvm .dojoxGrid .dojoxGridHeader .dojoxGridCell .dojoxGridArrowButtonChar {
+    width: 16px;
+    float: right;
+    display: inline;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView {
+    position: relative;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridView {
+    position: absolute;
+    overflow: hidden;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridHiddenFocus {
+    position: absolute;
+    top: -1000px;
+    height: 0;
+    width: 0;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridScrollbox {
+    position: relative;
+    overflow: auto;
+    background: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent {
+    position: relative;
+    overflow: hidden;
+    -moz-outline-style: none;
+    outline: none;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridRow {
+    border: none;
+    border-color: transparent;
+    border-left: none;
+    border-right: none;
+    background: none;
+    background-color: transparent;
+    border-top: none;
+    position: relative;
+    width: 100%;
+    color: #4d4d4d;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridRow.dojoxGridRowOdd {
+    background-color: #f1f8fa;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridRow.dojoxGridRowOver {
+    border: none !important;
+    outline: none !important;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridRow.dojoxGridRowSelected {
+    color: #fff !important;
+    outline: none !important;
+    background-color: #3295ce;
+    background: -ms-linear-gradient(top, #1987c8 100%, #469ed3 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#1987c8), to(#469ed3));
+    background: -moz-linear-gradient(center top, #1987c8, #469ed3) repeat scroll 0 0 #469ed3;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridCell.dojoxGridCellHover,
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridCell.dojoxGridCellOver,
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridCell.dojoxGridCellFocus,
+.bvm .dojoxGrid .dojoxGridMasterView .dojoxGridContent .dojoxGridCell.dojoxGridCellFocus.dojoxGridCellOver {
+    border: none !important;
+    outline: none !important;
+}
+
+.bvm .dojoxGrid .dojoxGridMasterMessages {
+    position: relative;
+    padding: 1em;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* DoJo Grid - END */
+
+/* DoJo Accordion - START */
+.bvm .dijitAccordionContainer {
+    border: none;
+    border-top: 0 !important;
+}
+
+.bvm .dijitAccordionInnerContainer {
+    margin-bottom: 4px;
+}
+
+.bvm .dijitAccordionInnerContainer.dijitAccordionInnerContainerSelected.dijitSelected {
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionInnerContainer,
+.bvm .dijitAccordionContainer .dijitAccordionTitle,
+.bvm .dijitAccordionContainer .dijitAccordionTitleFocus {
+    border: none !important;
+    outline: none !important;
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionTitle {
+    border-bottom: 1px solid #c7c7c7 !important;
+    background-color: #f8f8f8;
+    background: -ms-linear-gradient(top, #ffffff 100%, #f3f3f3 100%);
+    background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#f3f3f3));
+    background: -moz-linear-gradient(center top, #ffffff, #f3f3f3) repeat scroll 0 0 #f3f3f3;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionTitle .dijitAccordionText {
+    padding: 8px;
+    font-weight: bold;
+    color: #000;
+    clear: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionTitle .arrowTextUp,
+.bvm .dijitAccordionContainer .dijitAccordionTitle .arrowTextDown {
+    display: none;
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionInnerContainer .dijitAccordionTitle .dijitIcon.dijitIconChevron {
+    width: 16px;
+    height: 16px;
+    margin: 8px 8px 0 0;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -45px -92px !important;
+    /*background-image:url(../../../images/icon_chevron1_up.png);*/
+    clear: none;
+    display: inline-block;
+    float: right;
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionInnerContainer.dijitAccordionInnerContainerSelected .dijitAccordionTitle .dijitIcon.dijitIconChevron {
+    /* IMAGE SPRITE */
+    background-position: -45px -71px !important;
+    /* background-image:url(../../../images/icon_chevron1_down.png); */
+}
+
+.bvm .dijitAccordionContainer .dijitAccordionChildWrapper {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -o-border-bottom-left-radius: 5px;
+    -o-border-bottom-right-radius: 5px;
+}
+
+/* DoJo Accordion - END */
+
+/* DoJo ComboBox - START */
+.bvm .dijitComboBox {
+    border: 1px solid #c6c6c6;
+    background-color: #f6f6f6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: linear-gradient(top, #ffffff, #eeeeee);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.bvm .dijitComboBox .dijitInputContainer {
+    width: auto;
+    margin-left: 6px !important;
+}
+
+.bvm .dijitComboBox .dijitInputContainer,
+.bvm .dijitComboBox .dijitInputContainer input {
+    color: #333;
+}
+
+.bvm .dijitComboBox .dijitInputInner {
+    padding: 4px 5px 0 0;
+}
+
+.bvm .dijitComboBox .dijitButtonNode {
+    padding: 4px 5px 5px 5px;
+    outline: none;
+    background: none;
+    border: none;
+    border-left: 1px solid #c6c6c6;
+    background-color: #f6f6f6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: linear-gradient(top, #ffffff, #eeeeee);
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.bvm .dijitComboBox .dijitButtonNode.dijitDownArrowButton.dijitArrowButtonContainer input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    /* IMAGE SPRITE */
+    background-image: url(../../../images/sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -1px -219px;
+}
+
+.bvm .dijitComboBoxMenuPopup {
+    border: 1px solid #c6c6c6;
+    border-top: 0;
+    background-color: #f6f6f6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(center top, #ffffff, #eeeeee);
+    background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );*/
+    background: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: linear-gradient(top, #ffffff, #eeeeee);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+.bvm .dijitComboBoxMenuPopup .dijitMenuItem,
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemSelected,
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemHover,
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemFocused {
+    padding: 5px 5px 6px 5px;
+}
+
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemSelected {
+    color: #fff;
+    background-color: #3295ce;
+    background: -moz-linear-gradient(top, #1987c8 0%, #469ed3 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1987c8), color-stop(100%, #469ed3));
+    background: -webkit-linear-gradient(top, #1987c8 0%, #469ed3 100%);
+    background: -o-linear-gradient(top, #1987c8 0%, #469ed3 100%);
+    background: -ms-linear-gradient(top, #1987c8 0%, #469ed3 100%);
+    background: linear-gradient(top, #1987c8 0%, #469ed3 100%);
+}
+
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemHover,
+.bvm .dijitComboBoxMenuPopup .dijitMenuItemFocused {
+    color: #fff !important;
+    background: #4b8d2c;
+    background: -moz-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4b8d2c), color-stop(100%, #0e6118));
+    background: -webkit-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -o-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: -ms-linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+    background: linear-gradient(top, #4b8d2c 0%, #0e6118 100%);
+}
+
+/* DoJo ComboBox - END */
+
+/* DoJo Map SliderBar - START */
+.bvm .dijitSliderV.dijitSlider {
+    top: 10px !important;
+    left: 10px !important;
+}
+
+.bvm .dijitSliderMoveable {
+    z-index: 99;
+    position: absolute !important;
+    display: block;
+    vertical-align: middle;
+}
+
+.bvm .dijitSliderMoveableH {
+    right: 0;
+}
+
+.bvm .dijitSliderMoveableV {
+    right: 50%;
+}
+
+.bvm .dijit_a11y DIV.dijitSliderImageHandle,
+.bvm .dijitSliderImageHandle {
+    margin: 0;
+    padding: 0;
+    position: relative !important;
+    border: 8px solid #59a3c0;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.bvm .dijitSliderImageHandle.dijitSliderThumbHover,
+.bvm .dijitSliderImageHandle.dijitSliderThumbActive {
+    border: 8px solid #02719e;
+}
+
+.dj_iequirks .dijit_a11y .dijitSliderImageHandle {
+    font-size: 0;
+}
+
+.dj_ie7 .dijitSliderImageHandle {
+    overflow: hidden;
+    font-size: 75%;
+}
+
+.dj_ie7 .dijit_a11y .dijitSliderImageHandle {
+    overflow: visible;
+}
+
+.dijit_a11y .dijitSliderFocused .dijitSliderImageHandle {
+    border: 4px solid #000;
+    height: 8px;
+    width: 8px;
+}
+
+.dijitSliderImageHandleV {
+    top: -8px;
+    right: -50%;
+}
+
+.dijitSliderBar {
+    border-style: solid;
+    border-color: #333;
+    cursor: pointer;
+}
+
+.bvm .dijitSliderBarContainerV {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+}
+
+.bvm .dijitSliderBarV {
+    width: 4px;
+    border-width: 0 1px;
+}
+
+.bvm .dijitSliderProgressBar {
+    background-color: #dcecef;
+    z-index: 1;
+}
+
+.bvm .dijitSliderProgressBarV {
+    position: static !important;
+    height: 0;
+    vertical-align: top;
+    text-align: left;
+}
+
+.bvm .dj_webkit .dijitSliderProgressBarV {
+    padding-top: 1px;
+}
+
+.bvm .dijitSliderProgressBarH {
+    position: absolute !important;
+    width: 0;
+    vertical-align: middle;
+    overflow: visible;
+}
+
+.bvm .dijitSliderRemainingBar {
+    overflow: hidden;
+    background-color: #dcecef;
+    z-index: 1;
+}
+
+.bvm .dijitSliderRemainingBarV {
+    height: 100%;
+    text-align: left;
+}
+
+.bvm .dijitSliderRemainingBarH {
+    width: 100% !important;
+}
+
+.bvm .dijitSliderBumper {
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bvm .dijitSliderBumperV {
+    width: 4px;
+    height: 8px;
+    background-color: #dcecef;
+    border-width: 1px;
+}
+
+.bvm .dijitSliderBumperV.dijitSliderTopBumper {
+    border-bottom-width: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -o-border-top-left-radius: 5px;
+    -o-border-top-right-radius: 5px;
+}
+
+.bvm .dijitSliderBumperV.dijitSliderBottomBumper {
+    border-top-width: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -o-border-bottom-left-radius: 5px;
+    -o-border-bottom-right-radius: 5px;
+}
+
+.bvm .dijitSliderBottomBumper,
+.bvm .dijitSliderLeftBumper {
+    background-color: #dcecef;
+}
+
+.bvm .dijitSliderTopBumper,
+.bvm .dijitSliderRightBumper {
+    background-color: #dcecef;
+}
+
+.dijitSliderDecoration {
+    text-align: center;
+}
+
+.dijitSliderDecorationC, .dijitSliderDecorationV {
+    position: relative;
+}
+
+.dj_ie6 .dijitSliderV td, .dj_ie7 .dijitSliderV td {
+    position: static;
+}
+
+.dijitSliderDecorationV {
+    height: 100%;
+}
+
+.dijitSliderButton {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.dijit_a11y .dijitSliderButtonInner {
+    visibility: visible !important;
+}
+
+.bvm .dijitSliderButtonContainer {
+    text-align: center;
+    height: 0;
+    font-weight: bold;
+}
+
+.bvm .dijitSliderButtonContainer * {
+    cursor: pointer;
+}
+
+.bvm .dijitSlider .dijitButtonNode {
+    padding: 0;
+    display: block;
+}
+
+.dijitRuleContainer {
+    position: relative;
+    overflow: visible;
+}
+
+.dijitRuleContainerV {
+    height: 100%;
+    line-height: 0;
+    float: left;
+    text-align: left;
+}
+
+.dj_opera .dijitRuleContainerV {
+    line-height: 2%;
+}
+
+.dj_ie .dijitRuleContainerV {
+    line-height: normal;
+}
+
+.dj_gecko .dijitRuleContainerV {
+    margin: 0 0 1px 0;
+}
+
+.dijitRuleMark {
+    position: absolute;
+    border: 1px solid black;
+    line-height: 0;
+    height: 100%;
+}
+
+.dijitRuleLabelContainer {
+    position: absolute;
+}
+
+.dijitRuleLabelV {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dijitRuleMarkV {
+    height: 0;
+    border-right-width: 0 !important;
+    border-bottom-width: 0 !important;
+    border-left-width: 0 !important;
+    width: 100%;
+    left: 0;
+}
+
+.dj_ie .dijitRuleLabelContainerV {
+    margin-top: -.55em;
+}
+
+.dijit_a11y .dijitSliderReadOnly, .dijit_a11y .dijitSliderDisabled {
+    opacity: 0.6;
+}
+
+.dj_ie .dijit_a11y .dijitSliderReadOnly .dijitSliderBar, .dj_ie .dijit_a11y .dijitSliderDisabled .dijitSliderBar {
+    filter: alpha(opacity=40);
+}
+
+.dijit_a11y .dijitSlider .dijitSliderButtonContainer DIV {
+    font-family: monospace;
+    font-size: 1em;
+    line-height: 1em;
+    height: auto;
+    width: auto;
+    margin: 0 4px;
+}
+
+/* DoJo Map SliderBar - END */
+
+/* logging theme */
+
+.loggingSprite {
+    background: url(./images/loggingSprite.png);
+    height: 16px;
+    width: 16px;
+}
+
+.loggingSprite.loggingInfo {
+    background-position: 0 -26px;
+}
+
+.loggingSprite.loggingError {
+    background-position: 0 0;
+
+}
+
+.loggingWidgetEntryList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    overflow: auto;
+    padding: 5px 10px;
+}
+
+.loggingWidgetEntryList li {
+    margin: 5px 0;
+}
+
+.loggingWidgetTypeIcon {
+    float: left;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.loggingInfoMessage {
+    color: green;
+}
+
+.loggingErrorMessage {
+    color: red;
+}
+
+.loggingWidgetActionDisplayToggleIcon, .loggingWidgetActionContainerToggleEntry, .loggingWidgetActionClearIcon {
+    float: left;
+}
+
+.loggingWidgetActionDisplayToggleIcon {
+    cursor: default;
+}
+
+.loggingWidgetActionClearIcon {
+    float: right;
+    margin-right: 10px;
+}
+
+.loggingWidgetActionDisplayToggleIcon {
+    margin-right: 5px;
+}
+
+.loggingWidgetActionContainerToggleEntry {
+    margin-right: 10px;
+}
+
+.hiddenLogMessage {
+    display: none;
+}
+
+.loggingMessageText {
+    font-size: 9pt;
+    line-height: 20px;
+}
+
+.loggingMessageTimestamp {
+    font-size: 7pt;
+    margin-right: 3px;
+    color: black;
+    margin-top: 3px;
+    float: left;
+}
+
+.loggingActions {
+    border-bottom: 1px dashed #808080;
+    height: 25px;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.loggingWindowLink {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: blue;
+    font-size: 10pt;
+    border-bottom: 1px solid blue;
+    cursor: pointer;
+}
+
+.loggingClearTest {
+    float: right;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+}
+
+.loggingLinkMainText {
+    padding-right: 3px;
+}
+
+/* end logging theme */
