@@ -30,11 +30,13 @@ define([
     "esri/tasks/datareviewer/BatchValidationTask",
     "util/CronHelper",
     "bvroot/settings", "dijit/Dialog",
+    "dijit/ConfirmDialog",
     "dijit/layout/ContentPane",
     "dijit/form/Button",
     "dojo/dom"
 ],
-    function (declare, domStyle, lang, registry, on, topic, template, i18n, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, BatchValidationTask, CronHelper, settings,Dialog) {
+    function (declare, domStyle, lang, registry, on, topic, template, i18n, _WidgetBase, _TemplatedMixin,
+     _WidgetsInTemplateMixin, BatchValidationTask, CronHelper, settings,Dialog, ConfirmDialog) {
         return    declare("bvmanager.dijit.ScheduledJobDetailsPanel", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin],
             {
                 widgetsInTemplate: true,
@@ -112,29 +114,42 @@ define([
                 },
                 /*
                  * This function deletes the selected job
-                 */
+                */
                 _deleteBatchValidationJob: function () {
-                	if (confirm(this.localization.confirmDeleteJob)) {
-	                    if (this._batchValidationJob != null && this._batchValidationJob !== undefined) {
-	                        var deferred = _batchValidationTask.deleteJob(this._batchValidationJob.jobId);
-	                        deferred.then(lang.hitch(this, function (result) {
-	                            if (result.deleted == true) {
-	                                topic.publish("refreshJobsList");
-	                                this._setJobDetailsPanelSelected();
-	                            }
-	                            else {
-	                                this._errorHandler()
-	                            }
-	                        }), lang.hitch(this, function (err) {
-	                            this._errorHandler(err)
-	                        }))
-	                    }
-                    }
+                    deleteDialog = new ConfirmDialog({
+                        content:this.localization.confirmDeleteJob,
+                        class: 'customConfirmDialog',
+                        style: "width: 310px; min-height:120px; height: 130px !important; padding:0px 5px 5px 5px;"
+                    });
+                    deleteDialog.show()
+                    deleteDialog.containerNode.style.height = '50px';
+                    deleteDialog.on( 'execute', lang.hitch(this,function( e ){ 
+                             if (this._batchValidationJob != null && this._batchValidationJob !== undefined) {
+                            var deferred = _batchValidationTask.deleteJob(this._batchValidationJob.jobId);
+                            deferred.then(lang.hitch(this, function (result) {
+                                if (result.deleted == true) {
+                                    topic.publish("refreshJobsList");
+                                    this._setJobDetailsPanelSelected();
+                                }
+                                else {
+                                    this._errorHandler()
+                                }
+                            }), lang.hitch(this, function (err) {
+                                this._errorHandler(err)
+                            }))
+                        }
+                    }));
                 },
                 _openScheduleJobDialog: function () {
                     var dialog = registry.byId("batchValidationEditorDialog");
                     if (this._batchValidationJob.status[0] == this.localization.jobFinishedStatus) {
-                        topic.publish("addLoggingInfo", this.localization.messageFinishedJob);
+                       // topic.publish("addLoggingInfo", this.localization.messageFinishedJob);
+                       modifyDialog = new Dialog({
+                            content: this.localization.messageFinishedJob,
+                            class: 'customConfirmDialog',
+                            style: "width: 310px; min-height:80px; height: 80px !important; padding:0px 5px 5px 5px;"
+                        });
+                       modifyDialog.show();
                     }
                     else {
                         if (dialog) {

@@ -2131,4 +2131,8 @@
     padding-right: 3px;
 }
 
+.customConfirmDialog .dijitDialogPaneActionBar{
+    float:right;
+}
+
 /* end logging theme */
