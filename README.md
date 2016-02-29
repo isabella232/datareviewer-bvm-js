@@ -1,4 +1,4 @@
-# datareviewer-sampleapps-batchbalidationmanager
+# datareviewer-sampleapps-batchvalidationmanager
 
 ## Features
 
