@@ -210,8 +210,6 @@ define([
                                 this.rbjFileName.set("value", "");
                                 return null;
                             })
-
-
                         }//, {useProxy: false}
                     );
                 },
@@ -229,7 +227,6 @@ define([
                             domStyle.set(this.dateNow, 'display', '');
                             domStyle.set(this.optionsMonthlyRow, 'display', 'none');
                             this.startingSpecifiedRadioLabel.innerHTML = this.nls.startingSpecifiedRadioLabel;
-
                         }
                     }), true);
                     this.runRecurringRadio.on("change", lang.hitch(this, function (isChecked) {
@@ -788,7 +785,7 @@ define([
                                 }));
                             }
                             else {
-                                if (this._jobId != null) {
+                                if (this._jobId != null && this.rbjFileName.value == this._batchFileName) {
                                     bvJobParamters = this._updateBatchValidationObject(this._batchJobFileItemId, analysisArea);
                                     return this.onSubmit(bvJobParamters, this._jobId);
                                 }
@@ -797,7 +794,12 @@ define([
                                     batchJobFileItemId.addCallback(lang.hitch(this, function (result) {
                                         if (result != null) {
                                             bvJobParamters = this._updateBatchValidationObject(this._batchJobFileItemId, analysisArea);
-                                            return this.onSubmit(bvJobParamters);
+                                             if (this._jobId != null){
+                                                return this.onSubmit(bvJobParamters, this._jobId);
+                                            }
+                                            else{
+                                                return this.onSubmit(bvJobParamters);
+                                            }
                                         }
                                     }));
                                 }
