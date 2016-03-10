@@ -1,6 +1,6 @@
 /** @license
-| Version 10.3.1
-| Copyright 2016 Esri
+| Version 10.2.2
+| Copyright 2014 Esri
 |
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
@@ -29,15 +29,15 @@ define("", function () {
         /**
          * Url of the map service to be used for logging and Identity Manager
          */
-        restReviewerMapServer: "http://<ArcGIS Server Host Machine Name>:6080/arcgis/rest/services/reviewer/MapServer/",
+        restReviewerMapServer: window.location.protocol + "//<ArcGIS Server Host Machine Name>:6080/arcgis/rest/services/reviewer/MapServer/",
         /**
          * URL to access DRS SOE rest services
          */
-        drsSoeUrl: "http://<ArcGIS Server Host Machine Name>:6080/arcgis/rest/services/reviewer/MapServer/exts/DataReviewerServer",
+        drsSoeUrl: window.location.protocol + "//<ArcGIS Server Host Machine Name>:6080/arcgis/rest/services/reviewer/MapServer/exts/DataReviewerServer",
         /**
-         * Specify if the UTC time has to be used for scheduling jobs with now option if a time is not chosen
+         * Specify if the UTC time has to be used for scheduling jobs if a time is not chosen
          */
-        clientTimeUTC: true,
+        clientTimeUTC: false,
         /**
          * Set refresh interval for job executions
          */

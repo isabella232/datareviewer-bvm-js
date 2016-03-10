@@ -1,6 +1,6 @@
 /** @license
-| Version 10.3.1
-| Copyright 2016 Esri
+| Version 10.2.2
+| Copyright 2014 Esri
 |
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ define([
     "dojo/on",
     "dojo/topic",
     "dojo/_base/connect",
-    "esri/tasks/datareviewer/BatchValidationParameters",
+    "drs/BatchValidationParameters",
     "util/CronHelper",
     "esri/map",
     "esri/toolbars/draw",
@@ -210,6 +210,8 @@ define([
                                 this.rbjFileName.set("value", "");
                                 return null;
                             })
+
+
                         }//, {useProxy: false}
                     );
                 },
@@ -222,11 +224,10 @@ define([
                         if (isChecked) {
                             this.runRecurringCheckBox.set("disabled", true);
                             this.recurringTxtEntry.set("disabled", true);
-                            this.recurringTxtEntry.set("text", "");
-                            this.runRecurringCheckBox.set("checked", false);
                             domStyle.set(this.dateNow, 'display', '');
                             domStyle.set(this.optionsMonthlyRow, 'display', 'none');
                             this.startingSpecifiedRadioLabel.innerHTML = this.nls.startingSpecifiedRadioLabel;
+
                         }
                     }), true);
                     this.runRecurringRadio.on("change", lang.hitch(this, function (isChecked) {
@@ -403,7 +404,7 @@ define([
                     this.optionsEveryDayRadio.set("checked", true);
                     this.extentWholeRadio.set("checked", true);
                     this.optionChangedFeaturesOnlyCheckBox.set("checked", false);
-                    this.runRecurringCheckBox.set("checked", false);
+
                     domStyle.set(this.showHideIntervalRow, 'display', 'none');
                     domStyle.set(this.optionsDailyRow, 'display', 'none');
                     domStyle.set(this.optionsWeeklyRow, 'display', 'none');
@@ -414,7 +415,6 @@ define([
                     this.sessionDropDown.selectedIndex = 0;
                     this._aoiPolygon = null;
                     this._formModify = false;
-                    this.recurringTxtEntry.value = "";
                     this._jobId = null;
                     this._batchFileName = null;
                     if (this._map != null) {
@@ -598,10 +598,10 @@ define([
                     if (this.runRecurringCheckBox.checked) {
                         return this.recurringTxtEntry.value;
                     }
-                    else if (this.runOnceRadio.checked)
-                    {
-                        return 1;
-                    }
+                    // else if (this.runOnceRadio.checked)
+                    // {
+                    // return 1;
+                    // }
                     return null;
                 },
 
@@ -651,19 +651,7 @@ define([
                         startDate = locale.format(this.startingDate.value, {datePattern: this._dateFormat, selector: "date"});
                     }
                     else {
-                        if (settings.clientTimeUTC === true){
-                             var date1 = new Date();
-                             var options = {
-                                selector: "date",
-                                zulu: true,
-                                datePattern: "MM/dd/yyyy"
-                             };
-                            startDate = stamp.toISOString(date1, options)
-                            //startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
-                        }
-                        else{
-                           startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
-                        }
+                        startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
 
                     }
                     return startDate;
@@ -674,29 +662,27 @@ define([
                  */
                 _getStartTime: function () {
                     var time, startTime;
-                    var startDate = new Date();
                     if (this.startingSpecifiedRadio.checked) {
-                        var options = {
-                            selector: 'time',
-                            zulu: true,
-                            timePattern:'HH:mm'
-                        };
                         time = locale.format(this.startingTime.value, {timePattern: this._timeFormat24Hour, selector: "time"});
-                        //time = locale.format(this.startingTime.value, {timePattern: this._timeFormat24Hour, selector: "time"});
                     }
                     else {
+                        var startDate = new Date();
                         //adding a minute as a buffer for now schedule
                         startDate = date.add(startDate, "minute", 1);
-                        time = locale.format(startDate, {timePattern: this._timeFormat24Hour, selector: "time"}); 
-                        if (settings.clientTimeUTC) {
-                            var options = {
-                                selector: 'time',
-                                zulu: true,
-                                timePattern:'HH:mm'
-                            };
-                            time=stamp.toISOString(startDate,options);
-                            time=time.replace('T','');
-                        }                    
+                        
+                         if (settings.clientTimeUTC) {
+	                        var options = {
+							    selector: 'time',
+							    zulu: true,
+							    timePattern:'HH:mm:ss'
+	  						};
+	                        time=stamp.toISOString(startDate,options);
+	                        time=time.replace('T','');
+                        }
+                        else
+                        {
+                        	time = locale.format(startDate, {timePattern: this._timeFormat24Hour, selector: "time"});
+                        }
                     }
                     return time;
                 },
@@ -798,7 +784,7 @@ define([
                                 }));
                             }
                             else {
-                                if (this._jobId != null && this.rbjFileName.value == this._batchFileName) {
+                                if (this._jobId != null) {
                                     bvJobParamters = this._updateBatchValidationObject(this._batchJobFileItemId, analysisArea);
                                     return this.onSubmit(bvJobParamters, this._jobId);
                                 }
@@ -807,12 +793,7 @@ define([
                                     batchJobFileItemId.addCallback(lang.hitch(this, function (result) {
                                         if (result != null) {
                                             bvJobParamters = this._updateBatchValidationObject(this._batchJobFileItemId, analysisArea);
-                                             if (this._jobId != null){
-                                                return this.onSubmit(bvJobParamters, this._jobId);
-                                            }
-                                            else{
-                                                return this.onSubmit(bvJobParamters);
-                                            }
+                                            return this.onSubmit(bvJobParamters);
                                         }
                                     }));
                                 }
@@ -963,19 +944,18 @@ define([
                 },
                 _setSpecificTime: function (minutes, hours, dayOfMonth, month, year) {
                     this.startingSpecifiedRadio.set("checked", 'checked');
-                    
+                    var jobStartTime = stamp.fromISOString("T" + hours + ":" + minutes + ":00");
+                    this.startingTime.set("value", jobStartTime);
                     if (dayOfMonth && month && dayOfMonth.indexOf("/") == -1 && month.indexOf("/") == -1 && dayOfMonth.indexOf("*") == -1 && month.indexOf("*") == -1) {
-                        if (year == "")
+                        if (year == "*")
                             year = new Date().getFullYear();
                         var jobStartDate = new Date(year, (month - 1), dayOfMonth);
                         this.startingDate.set("value", jobStartDate);
                     }
-                    //else {
+                    else {
                         //this.startingDate.set("value", new Date());
-                        var jobStartTime = stamp.fromISOString("T" + hours + ":" + minutes + ":00");
-                        this.startingTime.set("value", jobStartTime);
-                        //registry.byId(this.id + "_startingTime").set("value", new Date()); 
-                  //  }
+                        registry.byId(this.id + "_startingTime").set("value", new Date()); 
+                    }
 
                 },
                 onSubmit: function (job) {

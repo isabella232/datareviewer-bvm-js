@@ -1,6 +1,6 @@
 /** @license
-| Version 10.3.1
-| Copyright 2016 Esri
+| Version 10.2.2
+| Copyright 2014 Esri
 |
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 | limitations under the License.
 */
 define([
-    "esri/tasks/datareviewer/BatchValidationTask",
+    "drs/BatchValidationTask",
     "bvroot/settings",
     "dojo/_base/lang",
     "dijit/registry",

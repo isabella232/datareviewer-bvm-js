@@ -1,6 +1,6 @@
 /** @license
-| Version 10.3.1
-| Copyright 2016 Esri
+| Version 10.2.2
+| Copyright 2014 Esri
 |
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
@@ -30,9 +30,9 @@ define(
         "dijit/_WidgetsInTemplateMixin",
         "dojo/text!./JobExecutionList/templates/JobExecutionList.html",
         "dojo/i18n!./JobExecutionList/nls/JobExecutionListResource",
-        "esri/tasks/datareviewer/BatchValidationTask",
+        "drs/BatchValidationTask",
         "util/CronHelper",
-        "esri/tasks/datareviewer/ReviewerResultsTask",
+        "drs/ReviewerResultsTask",
         "bvroot/settings",
         "dojo/data/ItemFileReadStore",
         "dojox/grid/DataGrid",

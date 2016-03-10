@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9"/>
 	<!--
-     | Version 10.3.1
-     | Copyright 2016 Esri
+     | Version 10.2.2
+     | Copyright 2014 Esri
      |
      | Licensed under the Apache License, Version 2.0 (the "License");
      | you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@
 
     <title>Batch Validation Manager</title>
 	<!--Replace with local Url if ArcGIS JS API has been hosted locally-->
- 	<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.15/dijit/themes/claro/claro.css">
+ 	<link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
 	<!--Replace with local Url if ArcGIS JS API has been hosted locally-->
-    <link rel="stylesheet" href="https://js.arcgis.com/3.15/esri/css/esri.css"> 
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css"> 
     <link rel="stylesheet" href="style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/themes/bvm/bvm.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="css/themes/bvm/bvm_core.css" media="all"/>
@@ -66,7 +66,9 @@
     </script>
 
 	<!--Url of ArcGIS API for JavaScript--> 
-   <script src="https://js.arcgis.com/3.15/"></script>
+   <script src="http://js.arcgis.com/3.8/"></script>
+   <!--Url of ArcGIS Data Reviewer API for JavaScript--> 
+    <script src="http://datareviewer.arcgisonline.com/drsapi/drs.js"></script>
     <!-- 3rd: Parse DOM and load App -->
     <script>
         require(["dojo/parser",  "bvmanager/validationApplicationController", "bvmanager/dijit/ScheduledJobList", "bvmanager/dijit/ScheduledJobDetailsPanel", "bvmanager/dijit/JobExecutionDetailsPanel", "bvmanager/dijit/JobExecutionFilterPanel", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/layout/TabContainer", "bvmanager/dijit/BatchValidationEditorDialog", "bvmanager/dijit/JobExecutionList", "dojo/domReady!"], function (parser,  appController) {

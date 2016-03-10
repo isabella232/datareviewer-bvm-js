@@ -1,6 +1,6 @@
 /** @license
-| Version 10.3.1
-| Copyright 2016 Esri
+| Version 10.2.2
+| Copyright 2014 Esri
 |
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
@@ -304,7 +304,7 @@ define(
                     return false;
                 // validates * or if the value is between 2000 and 2099. Eg 45
                 var singlePattern = new RegExp("^(20[0-9][0-9]|[*])$");
-                // validates range values within 2000 - 2099. Eg 2016-2016
+                // validates range values within 2000 - 2099. Eg 2014-2016
                 var rangePattern = new RegExp("^(20[0-9][0-9])-(20[0-9][0-9])$");
                 //validates */2099 or values below 2099 / values below 2099. Eg 2012/2
                 var incrementsPattern = new RegExp("^(\\*|(?:20[0-9][0-9]))\\/([0-9]?[0-9])$");
@@ -375,7 +375,7 @@ define(
                         var dayOfMonth = jobStartDate.getUTCDate();
                         var month = jobStartDate.getMonth() + 1;
                         var year = jobStartDate.getFullYear();
-                        dailyCronExpression = "0 " + minute + " " + hour + " " + dayOfMonth + " " + month + " ? ";
+                        dailyCronExpression = "0 " + minute + " " + hour + " " + dayOfMonth + " " + month + " ? " + year;
                     }
                     return dailyCronExpression
                 }
