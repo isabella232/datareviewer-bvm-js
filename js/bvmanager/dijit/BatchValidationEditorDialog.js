@@ -651,7 +651,19 @@ define([
                         startDate = locale.format(this.startingDate.value, {datePattern: this._dateFormat, selector: "date"});
                     }
                     else {
-                        startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
+                        if (settings.clientTimeUTC === true){
+                             var date1 = new Date();
+                             var options = {
+                                selector: "date",
+                                zulu: true,
+                                datePattern: "MM/dd/yyyy"
+                             };
+                            startDate = stamp.toISOString(date1, options)
+                            //startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
+                        }
+                        else{
+                           startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
+                        }
 
                     }
                     return startDate;
@@ -677,14 +689,15 @@ define([
                         startDate = date.add(startDate, "minute", 1);
                         time = locale.format(startDate, {timePattern: this._timeFormat24Hour, selector: "time"}); 
                         if (settings.clientTimeUTC) {
-                        var options = {
-                            selector: 'time',
-                            zulu: true,
-                            timePattern:'HH:mm'
-                        };
-                        time=stamp.toISOString(startDate,options);
-                        time=time.replace('T','');
-                        }                    }
+                            var options = {
+                                selector: 'time',
+                                zulu: true,
+                                timePattern:'HH:mm'
+                            };
+                            time=stamp.toISOString(startDate,options);
+                            time=time.replace('T','');
+                        }                    
+                    }
                     return time;
                 },
 
