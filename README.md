@@ -15,15 +15,10 @@ Batch Validation Manager is a web application you can use to schedule the runnin
   * Experience with the ArcGIS API for JavaScript is helpful.
 
 #Resources
-- [What is BatchValidation Manager](http://resources.arcgis.com/en/help/data-reviewer-server/apps/index.html#/What_is_Batch_Validation_Manager/02s70000000p000000/)
-- [BatchValidationManager Tags](http://resources.arcgis.com/en/help/data-reviewer-server/apps/index.html#/Batch_Validation_Manager_tags/02s70000000q000000/)
+- [Deploy data quality services lesson](http://server.arcgis.com/en/data-reviewer/latest/help/lesson-1-deploy-data-quality-services.htm)
 
 #Issues
 Found a bug or want to request a new feature? Please let us know by submitting an issue. 
 
 #Contributing
-Anyone and everyone is welcome to contribute. 
-
-
-   
-  
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
