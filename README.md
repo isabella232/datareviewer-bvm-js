@@ -11,7 +11,7 @@ Batch Validation Manager is a web application you can use to schedule the runnin
   * Access the index.html page.
   
 ## Requirements
-  * ArcGIS DataReviewer for Server 10.3.1 or up.
+  * ArcGIS DataReviewer for Server 10.3.1 or later.
   * Experience with the ArcGIS API for JavaScript is helpful.
 
 #Resources
