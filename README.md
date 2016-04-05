@@ -14,13 +14,13 @@ Batch Validation Manager is a web application you can use to schedule the runnin
   * ArcGIS DataReviewer for Server 10.3.1 or later.
   * Experience with the ArcGIS API for JavaScript is helpful.
 
-#Resources
+##Resources
 - [Deploy data quality services lesson](http://server.arcgis.com/en/data-reviewer/latest/help/lesson-1-deploy-data-quality-services.htm)
 
-#Issues
+##Issues
 Found a bug or want to request a new feature? Please let us know by submitting an issue. 
 
-#Contributing
+##Contributing
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
 
 ## Licensing
