@@ -1,4 +1,4 @@
-# datareviewer-sampleapps-batchvalidationmanager
+# datareviewer-bvm-js
 
 ## Features
 
@@ -15,13 +15,18 @@ Batch Validation Manager is a web application you can use to schedule the runnin
   * Experience with the ArcGIS API for JavaScript is helpful.
   * ArcGIS Data Reviewer API for JavaScript 
 
-#Resources
-- [What is BatchValidation Manager](http://resources.arcgis.com/en/help/data-reviewer-server/apps/index.html#/What_is_Batch_Validation_Manager/02s70000000p000000/)
-- [BatchValidationManager Tags](http://resources.arcgis.com/en/help/data-reviewer-server/apps/index.html#/Batch_Validation_Manager_tags/02s70000000q000000/)
-- [ArcGIS Data Reviewer API for JavaScript](http://resources.arcgis.com/en/help/data-reviewer-server/js/API/index.html)
+##Resources
+- [Deploy data quality services lesson](http://server.arcgis.com/en/data-reviewer/latest/help/lesson-1-deploy-data-quality-services.htm)
 
-#Issues
+##Issues
 Found a bug or want to request a new feature? Please let us know by submitting an issue. 
 
-#Contributing
-Anyone and everyone is welcome to contribute. 
+##Contributing
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
+
+## Licensing
+
+A copy of the license is available in the repository's [LICENSE.txt](LICENSE.txt) file.
+
+[](Esri Tags: Data Reviewer Batch Validation Manager BVM Batch Jobs Quality Control QC Scheduling)
+[](Esri Language: JavaScript)
