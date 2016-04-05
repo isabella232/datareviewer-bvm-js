@@ -25,7 +25,7 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 ## Licensing
 
-A copy of the license is available in the repository's [LICENSE.txt][] file.
+A copy of the license is available in the repository's [LICENSE.txt] file.
 
 [](Esri Tags: Data Reviewer Batch Validation Manager BVM Batch Jobs Quality Control QC Scheduling)
 [](Esri Language: JavaScript)
