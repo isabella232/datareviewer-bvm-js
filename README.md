@@ -21,11 +21,11 @@ Batch Validation Manager is a web application you can use to schedule the runnin
 Found a bug or want to request a new feature? Please let us know by submitting an issue. 
 
 #Contributing
-Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
 
 ## Licensing
 
-A copy of the license is available in the repository's [LICENSE.txt] file.
+A copy of the license is available in the repository's [LICENSE.txt](LICENSE.txt) file.
 
 [](Esri Tags: Data Reviewer Batch Validation Manager BVM Batch Jobs Quality Control QC Scheduling)
 [](Esri Language: JavaScript)
