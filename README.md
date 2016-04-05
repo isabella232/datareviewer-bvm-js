@@ -1,4 +1,4 @@
-# datareviewer-sampleapps-batchvalidationmanager
+# datareviewer-bvm-js
 
 ## Features
 
@@ -22,3 +22,10 @@ Found a bug or want to request a new feature? Please let us know by submitting a
 
 #Contributing
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+
+## Licensing
+
+A copy of the license is available in the repository's [LICENSE.txt][] file.
+
+[](Esri Tags: Data Reviewer Batch Validation Manager BVM Batch Jobs Quality Control QC Scheduling)
+[](Esri Language: JavaScript)
