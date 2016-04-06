@@ -19,7 +19,7 @@ Batch Validation Manager is a web application you can use to schedule the runnin
 - [Deploy data quality services lesson](http://server.arcgis.com/en/data-reviewer/latest/help/lesson-1-deploy-data-quality-services.htm)
 
 ##Issues
-Found a bug or want to request a new feature? Please let us know by submitting an issue. 
+Find a bug or want to request a new feature? Please let us know by submitting an issue. 
 
 ##Contributing
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](CONTRIBUTING.md).
