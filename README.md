@@ -2,7 +2,7 @@
 
 ## Features
 
-Batch Validation Manager (BVM) is a JavaScript web application to manage the validation of data using services provided by ArcGIS Data Reviewer for Server. The application can be configured to run Data Reviewer Batch Jobs either on a recurring basis—daily, weekly, monthly, or yearly—or once at a future date. A scheduled job identifies the data to be validated, the extent of the validation—the full database or a spatial extent—and whether validation should be run on all features or only changed features for enterprise workspaces. The application uses the Data Reviewer for Server (DRS) batch validation capabilities to schedule and manage batch jobs and stores the results in the Reviewer workspace designated in the DRS Configuration utility.
+Batch Validation Manager (BVM) is a JavaScript web application to manage the validation of data using services provided by ArcGIS Data Reviewer for Server. The application can be configured to run Data Reviewer Batch Jobs either on a recurring basis—daily, weekly, monthly, or yearly—or once at a future date. A scheduled job identifies the data to be validated, the extent of the validation—the full database or a spatial extent—and whether validation should be run on all features or only changed features for enterprise workspaces.
 
 [View it live](http://datareviewer.arcgisonline.com/batchvalidationmanager/)
 
