@@ -35,9 +35,9 @@ define("", function () {
          */
         drsSoeUrl: "http://<ArcGIS Server Host Machine Name>:6080/arcgis/rest/services/reviewer/MapServer/exts/DataReviewerServer",
         /**
-         * Specify if the UTC time has to be used for scheduling jobs with now option if a time is not chosen
+         * Specify false, if a conversion to UTC time is necessary when creating or modifying a schedule job at a specified date/time
          */
-        clientTimeUTC: true,
+        clientTimeUTC: false,
         /**
          * Set refresh interval for job executions
          */

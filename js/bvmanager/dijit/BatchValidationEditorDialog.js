@@ -645,58 +645,77 @@ define([
                     }
                     return null;
                 },
+                /**
+                 * @private
+                 * This will get the starting date in UTC format
+                 */                
                 _getStartDate: function () {
                     var startDate = null;
+                    var date = null;
                     if (this.startingSpecifiedRadio.checked) {
-                        startDate = locale.format(this.startingDate.value, {datePattern: this._dateFormat, selector: "date"});
+                        date = this.startingDate.value;
+                        //Date passed in local format. Convert to UTC
+                        if (settings.clientTimeUTC === false){
+                                 var options = {
+                                    selector: "date",
+                                    zulu: true,
+                                    datePattern: "MM/dd/yyyy"
+                                 };
+                                startDate = stamp.toISOString(date, options);
+                          }
+                          else{
+                               startDate = locale.format(date, {datePattern: this._dateFormat, selector: "date"});
+                          }                        
                     }
                     else {
-                        if (settings.clientTimeUTC === true){
-                             var date1 = new Date();
-                             var options = {
-                                selector: "date",
-                                zulu: true,
-                                datePattern: "MM/dd/yyyy"
-                             };
-                            startDate = stamp.toISOString(date1, options)
-                            //startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
-                        }
-                        else{
-                           startDate = locale.format(new Date(), {datePattern: this._dateFormat, selector: "date"});
-                        }
-
+                        date = new Date();
+                        var options = {
+                            selector: "date",
+                            zulu: true,
+                            datePattern: "MM/dd/yyyy"
+                        };
+                        startDate = stamp.toISOString(date, options);
                     }
                     return startDate;
                 },
                 /**
                  * @private
-                 * This will get the starting date and time in UTC 24 Hr format
+                 * This will get the starting time in UTC 24 Hr format
                  */
                 _getStartTime: function () {
-                    var time, startTime;
-                    var startDate = new Date();
+                    var time, startDate;
+
                     if (this.startingSpecifiedRadio.checked) {
-                        var options = {
-                            selector: 'time',
-                            zulu: true,
-                            timePattern:'HH:mm'
-                        };
-                        time = locale.format(this.startingTime.value, {timePattern: this._timeFormat24Hour, selector: "time"});
-                        //time = locale.format(this.startingTime.value, {timePattern: this._timeFormat24Hour, selector: "time"});
-                    }
-                    else {
-                        //adding a minute as a buffer for now schedule
-                        startDate = date.add(startDate, "minute", 1);
-                        time = locale.format(startDate, {timePattern: this._timeFormat24Hour, selector: "time"}); 
-                        if (settings.clientTimeUTC) {
+                         startDate = this.startingDate.value;
+                         //update time for startDate
+                         startDate.setHours(this.startingTime.value.getHours());
+                         startDate.setMinutes(this.startingTime.value.getMinutes());
+                         startDate.setSeconds(this.startingTime.value.getSeconds());
+                         startDate.setMilliseconds(this.startingTime.value.getMilliseconds());
+                        if (settings.clientTimeUTC === false) {
                             var options = {
-                                selector: 'time',
+                                selector: "time",
                                 zulu: true,
-                                timePattern:'HH:mm'
+                                timePattern:"HH:mm"
                             };
                             time=stamp.toISOString(startDate,options);
                             time=time.replace('T','');
-                        }                    
+                        }
+                        else {
+                            time = locale.format(startDate, {timePattern: this._timeFormat24Hour, selector: "time"});
+                        }                        
+                    }
+                    else{
+                        //adding a minute as a buffer for now schedule
+                        var startDate = new Date();
+                        startDate = date.add(startDate, "minute", 1); 
+                        var options = {
+                            selector: "time",
+                            zulu: true,
+                            timePattern:"HH:mm"
+                        };
+                        time=stamp.toISOString(startDate,options);
+                        time=time.replace('T','');                        
                     }
                     return time;
                 },
