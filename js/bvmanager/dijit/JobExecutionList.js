@@ -127,8 +127,8 @@ define(
                 var uniqueId = 0;
                 array.forEach(scheduledJobsList.scheduledJobs, lang.hitch(this, function (item, i) {
                     uniqueId += 1;
-                    if (item.hasOwnProperty("executionDetails") === true && item.status.toLowerCase() == "executing") {
-                        jobExecutionList.push({id: uniqueId, jobId: item.jobId, title: item.parameters.title, parameters: item.parameters, batchRunId: item.status.toLowerCase(), batchRunStartTime: item.executionDetails.startTimeUTC, batchRunEndTime: this.getEpochTime(item.executionDetails.finishTimeUtc), batchRunStatus: item.status.toLowerCase()});
+                    if (item.hasOwnProperty("jobInfo") === true && item.status.toLowerCase() == "executing") {
+                        jobExecutionList.push({id: uniqueId, jobId: item.jobId, title: item.parameters.title, parameters: item.parameters, batchRunId: item.status.toLowerCase(), batchRunStartTime: item.jobInfo.startTimeUTC, batchRunEndTime: this.getEpochTime(item.jobInfo.finishTimeUtc), batchRunStatus: item.status.toLowerCase()});
                     }
                     if (item.hasOwnProperty("batchRunIds") === true) {
                         array.forEach(item.batchRunIds, function (batchRunId, idx) {
@@ -136,8 +136,8 @@ define(
                             jobExecutionList.push({id: uniqueId, jobId: item.jobId, title: item.parameters.title, parameters: item.parameters, batchRunId: batchRunId.substring(1, batchRunId.length - 1)});
                         });
                     }
-                    else if (item.hasOwnProperty("executionDetails") === true && item.executionDetails.status.toLowerCase() == "failed") {
-                        jobExecutionList.push({id: uniqueId + 1, jobId: item.jobId, title: item.parameters.title, parameters: item.parameters, batchRunId: item.executionDetails.status.toLowerCase(), batchRunStartTime: item.executionDetails.startTimeUTC, batchRunEndTime: this.getEpochTime(item.executionDetails.finishTimeUtc), batchRunStatus: item.executionDetails.status.toLowerCase()});
+                    else if (item.hasOwnProperty("jobInfo") === true && item.jobInfo.status.toLowerCase() == "failed") {
+                        jobExecutionList.push({id: uniqueId + 1, jobId: item.jobId, title: item.parameters.title, parameters: item.parameters, batchRunId: item.jobInfo.status.toLowerCase(), batchRunStartTime: item.jobInfo.startTimeUTC, batchRunEndTime: this.getEpochTime(item.jobInfo.finishTimeUtc), batchRunStatus: item.jobInfo.status.toLowerCase()});
                     }
                 }));
                 this._getBatchRunDetails(jobExecutionList);
